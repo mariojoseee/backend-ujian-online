@@ -49,6 +49,9 @@
   <!-- ./wrapper -->
 
   @include('admin.components.script')
+
+  {{-- Sweet Alert --}}
+  @include('sweetalert::alert')
 </body>
 
 </html>

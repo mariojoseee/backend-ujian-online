@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class JurusanController extends Controller
 {
@@ -14,7 +16,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        return view('admin.layouts.jurusan', [
+        return view('admin.layouts.index_jurusan', [
             'title' => "Jurusan",
             'smallTitle' => " - Jurusan",
             'headTitle' => "Jurusan",
@@ -29,7 +31,11 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.layouts.create_jurusan', [
+            'title' => "Form Tambah Jurusan",
+            'smallTitle' => " - Jurusan",
+            'headTitle' => "Create Jurusan",
+        ]);
     }
 
     /**
@@ -40,7 +46,14 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_jurusan' => 'required|max:50',
+            'singkatan' => 'required|unique:jurusans|max:50',
+        ]);
+
+        Jurusan::create($validatedData);
+        Alert::success('Sukses', 'Data berhasil ditambahkan !');
+        return redirect('/jurusan');
     }
 
     /**

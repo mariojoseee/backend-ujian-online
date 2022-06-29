@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -15,8 +16,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 // ROUTE ADMIN
-// Route::get('/', function () {
-//     return view('admin.layouts.dashboard');
-// });
 
 Route::get('/', [DashboardController::class, 'index']);
+
+Route::resource('/jurusan', JurusanController::class);

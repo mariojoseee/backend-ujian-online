@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Jurusan;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +15,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Jurusan::create([
+            'nama_jurusan' => 'Matematika dan Ilmu Pengetahuan Alam',
+            'singkatan' => 'MIPA'
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Jurusan::create([
+            'nama_jurusan' => 'Ilmu Pengetahuan Sosial',
+            'singkatan' => 'IPS'
+        ]);
+        
+        Jurusan::create([
+            'nama_jurusan' => 'Ilmu Bahasa dan Budaya',
+            'singkatan' => 'IBB'
+        ]);
     }
 }

@@ -29,8 +29,12 @@
                       <td>{{ $jurusan->nama_jurusan }}</td>
                       <td>{{ $jurusan->singkatan }}</td>
                       <td class="text-right">
-                        <button class="btn btn-primary btn-sm" data-toggle="modal">Edit</button>
-                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                        <a href="/jurusan/{{ $jurusan->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                        <form action="/jurusan/{{ $jurusan->id }}" method="post" class="d-inline">
+                          @method('delete')
+                          @csrf
+                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
+                        </form>
                       </td>
                     </tr>
                   @endforeach

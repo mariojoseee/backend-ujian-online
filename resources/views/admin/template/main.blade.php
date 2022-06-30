@@ -50,8 +50,10 @@
 
   @include('admin.components.script')
 
-  {{-- Sweet Alert --}}
+  {{-- Sweet Alert RealRashid --}}
   @include('sweetalert::alert')
 </body>
+
+{{-- @yield('sweetalert-js') --}}
 
 </html>

@@ -12,11 +12,12 @@
             <!-- Card-body -->
             <div class="card-body mr-1">
 
-              <form method="post" action="/jurusan">
+              <form method="post" action="/jurusan/{{ $jurusan->id }}">
+                @method('put')
                 @csrf
                 <div class="mb-3">
                   <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
-                  <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" autofocus value="{{ old('nama_jurusan') }}"/>
+                  <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" value="{{ old('nama_jurusan', $jurusan->nama_jurusan) }}"/>
                   @error('nama_jurusan')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -26,7 +27,7 @@
 
                 <div class="mb-3">
                   <label for="singkatan" class="form-label">Singkatan Jurusan</label>
-                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}" />
+                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan', $jurusan->singkatan) }}" />
                   @error('singkatan')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -34,7 +35,7 @@
                   @enderror
                 </div>
 
-                <button type="submit" class="mt-2 btn btn-primary">Tambah Data</button>
+                <button type="submit" class="mt-2 btn btn-primary">Update Jurusan</button>
               </form>
 
             </div>

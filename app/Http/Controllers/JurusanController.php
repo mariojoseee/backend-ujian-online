@@ -16,7 +16,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        return view('admin.layouts.index_jurusan', [
+        return view('admin.layouts.jurusan.index_jurusan', [
             'title' => "Jurusan",
             'smallTitle' => " - Jurusan",
             'headTitle' => "Jurusan",
@@ -31,7 +31,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('admin.layouts.create_jurusan', [
+        return view('admin.layouts.jurusan.create_jurusan', [
             'title' => "Form Tambah Jurusan",
             'smallTitle' => " - Jurusan",
             'headTitle' => "Create Jurusan",
@@ -75,7 +75,12 @@ class JurusanController extends Controller
      */
     public function edit(Jurusan $jurusan)
     {
-        //
+        return view('admin.layouts.jurusan.edit_jurusan', [
+            'title' => "Form Edit Jurusan",
+            'smallTitle' => " - Jurusan",
+            'headTitle' => "Update Jurusan",
+            'jurusan' => $jurusan
+        ]);
     }
 
     /**
@@ -87,7 +92,21 @@ class JurusanController extends Controller
      */
     public function update(Request $request, Jurusan $jurusan)
     {
-        //
+        $rules = [
+            'nama_jurusan' => 'required|max:50'
+        ];
+
+        if ($request->singkatan != $jurusan->singkatan) {
+            $rules['singkatan'] = 'required|unique:jurusans|max:50';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // QUERY
+        Jurusan::where('id', $jurusan->id)->update($validatedData);
+
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        return redirect('/jurusan');
     }
 
     /**
@@ -98,6 +117,8 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
-        //
+        Jurusan::destroy($jurusan->id);
+        Alert::success('Sukses', 'Data berhasil dihapus !');
+        return redirect('/jurusan');
     }
 }

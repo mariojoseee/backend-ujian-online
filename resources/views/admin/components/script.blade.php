@@ -16,6 +16,9 @@
   <script src="/admin-lte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+  {{-- Sweet Alert JS --}}
+  {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+
   <!-- AdminLTE App -->
   <script src="/admin-lte/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->

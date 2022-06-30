@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KelazController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-// ROUTE ADMIN
+// --- ROUTE ADMIN BACKEND UJIAN ONLINE --- //
 
 Route::get('/', [DashboardController::class, 'index']);
 
+// Route Jurusan
 Route::resource('/jurusan', JurusanController::class);
+// Route Kelas
+Route::resource('/kelaz', KelazController::class);

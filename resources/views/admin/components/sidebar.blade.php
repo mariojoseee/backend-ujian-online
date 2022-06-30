@@ -47,7 +47,7 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/kelas" class="nav-link">
+              <a href="/kelaz" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data Kelas</p>
               </a>

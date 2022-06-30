@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Jurusan;
+use App\Models\Kelaz;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,6 +29,21 @@ class DatabaseSeeder extends Seeder
         Jurusan::create([
             'nama_jurusan' => 'Ilmu Bahasa dan Budaya',
             'singkatan' => 'IBB'
+        ]);
+
+        Kelaz::create([
+            'nama_kelaz' => 'X IBB 1',
+            'jurusan_id' => '3'
+        ]);
+
+        Kelaz::create([
+            'nama_kelaz' => 'X IBB 2',
+            'jurusan_id' => '3'
+        ]);
+
+        Kelaz::create([
+            'nama_kelaz' => 'X IBB 3',
+            'jurusan_id' => '3'
         ]);
     }
 }

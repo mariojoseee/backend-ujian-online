@@ -10,4 +10,9 @@ class Jurusan extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function kelaz()
+    {
+        return $this->hasMany(Kelaz::class);
+    }
 }

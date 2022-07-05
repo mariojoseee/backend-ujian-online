@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelaz;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KelazController extends Controller
 {
@@ -29,7 +31,12 @@ class KelazController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.layouts.kelaz.create_kelaz', [
+            'title' => "Form Tambah Kelas",
+            'smallTitle' => " - Kelas",
+            'headTitle' => "Create Kelas",
+            'jurusans' => Jurusan::all()
+        ]);
     }
 
     /**
@@ -40,7 +47,14 @@ class KelazController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_kelaz' => 'required|unique:kelazs|max:10',
+            'jurusan_id' => 'required|max:2',
+        ]);
+
+        Kelaz::create($validatedData);
+        Alert::success('Sukses', 'Data berhasil ditambahkan !');
+        return redirect('/kelaz');
     }
 
     /**

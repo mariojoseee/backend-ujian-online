@@ -35,6 +35,10 @@
                   @enderror
                 </div>
 
+                <div class="text-right mt-2">
+                  <a href="/jurusan"> &larr; Kembali ke data jurusan</a>
+                </div>
+
                 <button type="submit" class="mt-2 btn btn-primary">Update Jurusan</button>
               </form>
 

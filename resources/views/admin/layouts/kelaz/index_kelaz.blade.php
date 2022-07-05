@@ -27,7 +27,7 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $kelaz->nama_kelaz }}</td>
-                      <td>{{ $kelaz->jurusan_id }}</td>
+                      <td>{{ $kelaz->jurusan->nama_jurusan }}</td>
                       <td class="text-right">
                         <a href="/kelaz/{{ $kelaz->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/kelaz/{{ $kelaz->id }}" method="post" class="d-inline">

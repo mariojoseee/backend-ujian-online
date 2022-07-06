@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelazController;
+use App\Http\Controllers\LoginController;
+use Illuminate\Auth\Events\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,11 @@ use App\Http\Controllers\KelazController;
 
 // --- ROUTE ADMIN BACKEND UJIAN ONLINE --- //
 
-Route::get('/', [DashboardController::class, 'index']);
+// Login Admin dan Guru
+Route::get('/login', [LoginController::class, 'index']);
 
+// Dashboard
+Route::get('/', [DashboardController::class, 'index']);
 // Route Angkatan
 Route::resource('/angkatan', AngkatanController::class);
 // Route Jurusan

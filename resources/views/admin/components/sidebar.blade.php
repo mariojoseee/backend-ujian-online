@@ -17,22 +17,32 @@
             <p>Dashboard</p>
           </a>
         </li>
+
         <li class="nav-item">
           <a href="/admin-quiz" class="nav-link">
             <i class="fas fa-user nav-icon"></i>
             <p>Admin</p>
           </a>
         </li>
+
         <li class="nav-item">
           <a href="/siswa" class="nav-link">
             <i class="fas fa-graduation-cap nav-icon"></i>
             <p>Siswa</p>
           </a>
         </li>
+
         <li class="nav-item">
           <a href="/guru" class="nav-link">
             <i class="fas fa-user nav-icon"></i>
             <p>Guru</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/angkatan" class="nav-link">
+            <i class="fas fa-calendar-alt nav-icon"></i>
+            <p>Angkatan</p>
           </a>
         </li>
 

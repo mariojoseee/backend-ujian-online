@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AngkatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\KelazController;
 
 Route::get('/', [DashboardController::class, 'index']);
 
+// Route Angkatan
+Route::resource('/angkatan', AngkatanController::class);
 // Route Jurusan
 Route::resource('/jurusan', JurusanController::class);
 // Route Kelas

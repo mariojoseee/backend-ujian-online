@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Angkatan;
 use App\Models\Jurusan;
 use App\Models\Kelaz;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,6 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Angkatan::create([
+            'tahun' => '2020'
+        ]);
+
+        Angkatan::create([
+            'tahun' => '2021'
+        ]);
+
+        Angkatan::create([
+            'tahun' => '2022'
+        ]);
+
         Jurusan::create([
             'nama_jurusan' => 'Matematika dan Ilmu Pengetahuan Alam',
             'singkatan' => 'MIPA'

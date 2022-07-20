@@ -17,9 +17,10 @@
                 <thead>
                   <tr>
                     <th style="width: 1%;">No.</th>
-                    <th style="width: 9%;">Nama Kelas</th>
+                    <th style="width: 8%;">Nama Kelas</th>
                     <th style="width: 13%;">Jurusan</th>
-                    <th style="width: 7%;">Aksi</th>
+                    <th style="width: 8%;">Angkatan</th>
+                    <th style="width: 8%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,7 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $kelaz->nama_kelaz }}</td>
                       <td>{{ $kelaz->jurusan->nama_jurusan }}</td>
+                      <td>{{ $kelaz->angkatan->tahun }}</td>
                       <td class="text-right">
                         <a href="/kelaz/{{ $kelaz->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/kelaz/{{ $kelaz->id }}" method="post" class="d-inline">

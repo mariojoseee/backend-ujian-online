@@ -82,17 +82,20 @@ class DatabaseSeeder extends Seeder
 
         Kelaz::create([
             'nama_kelaz' => 'X IBB 1',
-            'jurusan_id' => '3'
+            'jurusan_id' => '3',
+            'angkatan_id' => '1',
         ]);
 
         Kelaz::create([
             'nama_kelaz' => 'X IBB 2',
-            'jurusan_id' => '3'
+            'jurusan_id' => '3',
+            'angkatan_id' => '1',
         ]);
 
         Kelaz::create([
             'nama_kelaz' => 'X IBB 3',
-            'jurusan_id' => '3'
+            'jurusan_id' => '3',
+            'angkatan_id' => '1',
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Angkatan;
 use App\Models\Kelaz;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
@@ -35,7 +36,8 @@ class KelazController extends Controller
             'title' => "Form Tambah Kelas",
             'smallTitle' => " - Kelas",
             'headTitle' => "Create Kelas",
-            'jurusans' => Jurusan::all()
+            'jurusans' => Jurusan::all(),
+            'angkatan' => Angkatan::all()
         ]);
     }
 
@@ -48,9 +50,17 @@ class KelazController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_kelaz' => 'required|unique:kelazs|max:10',
+            'nama_kelaz' => 'required|max:10',
             'jurusan_id' => 'required|max:2',
+            'angkatan_id' => 'required|max:4',
         ]);
+
+        $kelaz = Kelaz::where('nama_kelaz', $request->nama_kelaz)->where('angkatan_id', $request->angkatan_id)->first();
+
+        if($kelaz){
+            Alert::error('Gagal', 'Data yang anda inputkan sudah ada !');
+            return redirect('/kelaz/create');
+        }
 
         Kelaz::create($validatedData);
         Alert::success('Sukses', 'Data berhasil ditambahkan !');

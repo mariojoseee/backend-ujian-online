@@ -15,4 +15,9 @@ class Kelaz extends Model
     {
         return $this->belongsTo(Jurusan::class);
     }
+
+    public function angkatan()
+    {
+        return $this->belongsTo(Angkatan::class);
+    }
 }

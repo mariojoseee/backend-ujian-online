@@ -33,6 +33,15 @@
                   </select>
                 </div>
 
+                <div class="mb-3">
+                  <label for="jurusan" class="form-label">Tahun Angkatan</label>
+                  <select class="custom-select" name="angkatan_id">
+                  @foreach ($angkatan as $a)
+                  <option value="{{ $a->id }}">{{ $a->tahun }}</option>
+                  @endforeach
+                  </select>
+                </div>
+
                 <button type="submit" class="mt-2 btn btn-primary">Tambah Kelas</button>
 
                 <div class="text-right mt-2">

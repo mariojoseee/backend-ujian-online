@@ -21,36 +21,40 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Admin::create([
-            'nama' => 'I Made Mario Jose Valentino',
+            'nuptk' => '1915323100180501',
             'email' => 'mariojose@gmail.com',
             'password' => bcrypt('12345678'),
-            'no_ktp' => '1915323100180501',
+            'nama' => 'I Made Mario Jose Valentino',
             'level' => 'admin',
+            'no_telp' => '081981716155',
         ]);
 
         Admin::create([
-            'nama' => 'Ketut Kevin Arya Baskara',
+            'nuptk' => '1915323052070900',
             'email' => 'kevinarya@gmail.com',
             'password' => bcrypt('12345678'),
-            'no_ktp' => '1915323052070900',
+            'nama' => 'Ketut Kevin Arya Baskara',
             'level' => 'admin',
+            'no_telp' => '082132130954',
         ]);
 
         Guru::create([
-            'nama' => 'I Wayan Agus Wika Sedana, S.Pd., M.Pd.',
+            'nuptk' => '8767613240986123',
             'email' => 'aguswika@gmail.com',
             'password' => bcrypt('12345678'),
-            'no_ktp' => '8767613240986123',
+            'nama' => 'I Wayan Agus Wika Sedana, S.Pd., M.Pd.',
             'level' => 'guru',
+            'no_telp' => '089876761377',
             'admin_id' => 1
         ]);
 
         Guru::create([
-            'nama' => 'I Putu Sony Adi Pratama, S.Si., M.Si.',
+            'nuptk' => '6512453893876450',
             'email' => 'sonypratama@gmail.com',
             'password' => bcrypt('12345678'),
-            'no_ktp' => '6512453893876450',
+            'nama' => 'I Putu Sony Adi Pratama, S.Si., M.Si.',
             'level' => 'guru',
+            'no_telp' => '085413241391',
             'admin_id' => 2
         ]);
 

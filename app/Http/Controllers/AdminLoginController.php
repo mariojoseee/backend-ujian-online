@@ -14,9 +14,9 @@ class AdminLoginController extends Controller
 
     public function postlogin(Request $request){
         // dd($request->all());
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' =>$request->password])){
+        if (Auth::guard('admin')->attempt(['nuptk' => $request->nuptk, 'password' =>$request->password])){
             return redirect('/');
-        }elseif (Auth::guard('guru')->attempt(['email' => $request->email, 'password' =>$request->password])){
+        }elseif (Auth::guard('guru')->attempt(['nuptk' => $request->nuptk, 'password' =>$request->password])){
             return redirect('/');
         }
         return redirect('/login-admin-ujian-online');

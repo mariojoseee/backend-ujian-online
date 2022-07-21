@@ -21,14 +21,14 @@
         @if (Str::length(Auth::guard('admin')->user()) > 0)
           @if (Auth::guard('admin')->user()->level = 'admin')
             <li class="nav-item">
-              <a href="/admin-quiz" class="nav-link">
+              <a href="/admin-smansabar" class="nav-link">
                 <i class="fas fa-user nav-icon"></i>
                 <p>Admin</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="/guru" class="nav-link">
+              <a href="/guru-smansabar" class="nav-link">
                 <i class="fas fa-chalkboard-teacher nav-icon"></i>
                 <p>Guru</p>
               </a>

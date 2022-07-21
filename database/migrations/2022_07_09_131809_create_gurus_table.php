@@ -10,11 +10,12 @@ return new class extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email')->unique();
+            $table->string('nuptk')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('password');
-            $table->string('no_ktp')->unique();
+            $table->string('nama')->nullable();
             $table->string('level');
+            $table->string('no_telp')->nullable();
             $table->foreignId('admin_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

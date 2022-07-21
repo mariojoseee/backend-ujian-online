@@ -16,7 +16,7 @@
                 @csrf
                 <div class="mb-3">
                   <label for="nama_kelaz" class="form-label">Nama Kelas</label>
-                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" style="text-transform: uppercase;" />
+                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" />
                   @error('nama_kelaz')
                     <div class="invalid-feedback">
                       {{ $message }}

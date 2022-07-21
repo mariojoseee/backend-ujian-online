@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AngkatanController;
 use Illuminate\Support\Facades\Route;
@@ -27,14 +28,16 @@ Route::get('/login-admin-ujian-online', [AdminLoginController::class, 'index'])-
 Route::post('/postlogin', [AdminLoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-// Fitur untuk Admin dan Guru (Keduanya bisa mengakses dashboard)
+// FITUR UNTUK ADMIN DAN GURU (Keduanya bisa mengakses dashboard)
 Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], function () {
   // Dashboard
   Route::get('/', [DashboardController::class, 'index']);
 });
 
-// Fitur Khusus Admin
+// FITUR KHUSUS ADMIN
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
+  // Data Admin yang Terdafar
+  Route::get('/admin-smansabar', [AdminController::class, 'index']);
   // Route Kelas
   Route::resource('/kelaz', KelazController::class);
   // Route Angkatan

@@ -109,6 +109,8 @@ class KelazController extends Controller
      */
     public function destroy(Kelaz $kelaz)
     {
-        //
+        Kelaz::destroy($kelaz->id);
+        Alert::success('Sukses', 'Data berhasil dihapus !');
+        return redirect('/kelaz');
     }
 }

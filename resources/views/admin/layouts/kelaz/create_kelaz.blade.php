@@ -16,7 +16,7 @@
                 @csrf
                 <div class="mb-3">
                   <label for="nama_kelaz" class="form-label">Nama Kelas</label>
-                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}"/>
+                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" style="text-transform: uppercase;" />
                   @error('nama_kelaz')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="jurusan" class="form-label">Nama Jurusan</label>
+                  <label class="form-label">Nama Jurusan</label>
                   <select class="custom-select" name="jurusan_id">
                   @foreach ($jurusans as $jurusan)
                   <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="jurusan" class="form-label">Tahun Angkatan</label>
+                  <label class="form-label">Tahun Angkatan</label>
                   <select class="custom-select" name="angkatan_id">
                   @foreach ($angkatan as $a)
                   <option value="{{ $a->id }}">{{ $a->tahun }}</option>

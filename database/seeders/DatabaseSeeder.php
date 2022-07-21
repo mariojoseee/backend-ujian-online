@@ -7,6 +7,7 @@ use App\Models\Angkatan;
 use App\Models\Guru;
 use App\Models\Jurusan;
 use App\Models\Kelaz;
+use App\Models\Mapel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -96,6 +97,30 @@ class DatabaseSeeder extends Seeder
             'nama_kelaz' => 'X IBB 3',
             'jurusan_id' => '3',
             'angkatan_id' => '1',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Sastra Indonesia',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Sastra Inggris',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Antropologi',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Biologi',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Fisika',
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Ekonomi',
         ]);
     }
 }

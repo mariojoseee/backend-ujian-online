@@ -47,8 +47,8 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_jurusan' => 'required|max:50',
-            'singkatan' => 'required|unique:jurusans|max:50',
+            'nama_jurusan' => 'required|unique:jurusans|max:50',
+            'singkatan' => 'required|unique:jurusans|max:5',
         ]);
 
         Jurusan::create($validatedData);
@@ -97,7 +97,7 @@ class JurusanController extends Controller
         ];
 
         if ($request->singkatan != $jurusan->singkatan) {
-            $rules['singkatan'] = 'required|unique:jurusans|max:50';
+            $rules['singkatan'] = 'required|unique:jurusans|max:5';
         }
 
         $validatedData = $request->validate($rules);

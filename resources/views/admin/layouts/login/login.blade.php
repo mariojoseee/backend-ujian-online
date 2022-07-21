@@ -18,7 +18,7 @@
 <div class="login-box">
   <div class="login-logo mb-4">
     <a href="/admin-lte/index2.html" class="mr-3"><b>SMAN 1 Banjar</b></a>
-    <img src="/admin-lte/dist/img/LOGO-SMAN1BANJAR.png" width="115">
+    <img src="/admin-lte/dist/img/smansabanjar.png" width="110">
   </div>
   <!-- /.login-logo -->
   <div class="card">

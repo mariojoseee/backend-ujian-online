@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                   <label for="singkatan" class="form-label">Singkatan Jurusan</label>
-                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}" />
+                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}" style="text-transform: uppercase;"/>
                   @error('singkatan')
                     <div class="invalid-feedback">
                       {{ $message }}

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelazController;
+use App\Http\Controllers\MapelController;
 use Illuminate\Auth\Events\Login;
 
 /*
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
   Route::resource('/angkatan', AngkatanController::class);
   // Route Jurusan
   Route::resource('/jurusan', JurusanController::class);
+  // Route Mata Pelajaran
+  Route::resource('/mapel', MapelController::class);
 });
 
 // Fitur Khusus Guru

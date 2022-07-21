@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('angkatans', function (Blueprint $table) {
+        Schema::create('mapels', function (Blueprint $table) {
             $table->id();
-            $table->year('tahun');
+            $table->string('nama_mapel');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('angkatans');
+        Schema::dropIfExists('mapels');
     }
 };

@@ -28,16 +28,23 @@
             </li>
 
             <li class="nav-item">
+              <a href="/guru" class="nav-link">
+                <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                <p>Guru</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="/siswa" class="nav-link">
-                <i class="fas fa-graduation-cap nav-icon"></i>
+                <i class="fas fa-user-graduate nav-icon"></i>
                 <p>Siswa</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="/guru" class="nav-link">
-                <i class="fas fa-user nav-icon"></i>
-                <p>Guru</p>
+              <a href="/jurusan" class="nav-link">
+                <i class="fas fa-graduation-cap nav-icon"></i>
+                <p>Jurusan</p>
               </a>
             </li>
 
@@ -48,32 +55,18 @@
               </a>
             </li>
 
-            <li class="nav-item ">
-              <a class="nav-link ">
+            <li class="nav-item">
+              <a href="/kelaz" class="nav-link">
                 <i class="fas fa-door-closed nav-icon"></i>
-                <p>
-                  Kelas
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+                <p>Kelas</p>
               </a>
+            </li>
 
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/kelaz" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Data Kelas</p>
-                  </a>
-                </li>
-              </ul>
-
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/jurusan" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Jurusan</p>
-                  </a>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <a href="/mapel" class="nav-link">
+                <i class="fas fa-book nav-icon"></i>
+                <p>Mata Pelajaran</p>
+              </a>
             </li>
           @endif
         @endif

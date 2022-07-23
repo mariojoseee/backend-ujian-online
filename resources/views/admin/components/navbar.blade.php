@@ -13,9 +13,17 @@
       <a class="nav-link" data-slide="true" href="#" role="button">
         <p class="text-white">SMAN 1 BANJAR &nbsp;—&nbsp;
           @if (Str::length(Auth::guard('admin')->user()) > 0)
-            {{ Auth::guard('admin')->user()->nama }}
+            @if (Str::length(Auth::guard('admin')->user()->nama) > 0)
+              {{ Auth::guard('admin')->user()->nama }}
+            @else
+              Lengkapi data diri anda !
+            @endif
           @elseif (Str::length(Auth::guard('guru')->user()) > 0)
-            {{ Auth::guard('guru')->user()->nama }}
+            @if (Str::length(Auth::guard('guru')->user()->nama) > 0)
+              {{ Auth::guard('guru')->user()->nama }}
+            @else
+              Lengkapi data diri anda !
+            @endif
           @endif
         </p>
       </a>

@@ -26,20 +26,32 @@
 
                 <div class="mb-3">
                   <label class="form-label">Nama Jurusan</label>
-                  <select class="custom-select" name="jurusan_id">
-                  @foreach ($jurusans as $jurusan)
-                  <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
-                  @endforeach
+                  <select class="custom-select @error('jurusan_id') is-invalid @enderror" name="jurusan_id">
+                    <option value="" selected disabled>Pilih Jurusan</option>
+                    @foreach ($jurusans as $jurusan)
+                      <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
+                    @endforeach
                   </select>
+                  @error('jurusan_id')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label">Tahun Angkatan</label>
-                  <select class="custom-select" name="angkatan_id">
-                  @foreach ($angkatan as $a)
-                  <option value="{{ $a->id }}">{{ $a->tahun }}</option>
-                  @endforeach
+                  <select class="custom-select @error('angkatan_id') is-invalid @enderror" name="angkatan_id">
+                    <option value="" selected disabled>Pilih Tahun Angkatan</option>
+                    @foreach ($angkatan as $a)
+                      <option value="{{ $a->id }}">{{ $a->tahun }}</option>
+                    @endforeach
                   </select>
+                  @error('angkatan_id')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
                 <button type="submit" class="mt-2 btn btn-primary">Tambah Kelas</button>
@@ -48,7 +60,7 @@
                   <a href="/kelaz"> &larr; Kembali ke data kelas</a>
                 </div>
               </form>
-              
+
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AngkatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelazController;
 use App\Http\Controllers\MapelController;
 use Illuminate\Auth\Events\Login;
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], funct
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
   // Data Admin yang Terdafar
   Route::get('/admin-smansabar', [AdminController::class, 'index']);
+  // Route Guru
+  Route::resource('/guru-smansabar', GuruController::class);
   // Route Kelas
   Route::resource('/kelaz', KelazController::class);
   // Route Angkatan

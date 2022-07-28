@@ -15,7 +15,7 @@
               <form method="post" action="/guru-smansabar">
                 @csrf
                 <div class="mb-3">
-                  <label for="nuptk" class="form-label">NUPTK</label>
+                  <label for="nuptk" class="form-label">Nomor Unik Pendidik dan Tenaga Kependidikan (NUPTK)</label>
                   <input type="number" class="form-control @error('nuptk') is-invalid @enderror" id="nuptk" name="nuptk" autofocus value="{{ old('nuptk') }}"/>
                   @error('nuptk')
                     <div class="invalid-feedback">
@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
-                  <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}"/>
+                  <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}"/>
                   @error('password')
                     <div class="invalid-feedback">
                       {{ $message }}

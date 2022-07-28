@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
+use App\Models\Kelaz;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class GuruController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +17,11 @@ class GuruController extends Controller
      */
     public function index()
     {
-        return view('admin.layouts.guru.index_guru', [
-            'title' => "Guru",
-            'smallTitle' => " - Guru",
-            'headTitle' => "Guru",
-            'gurus' => Guru::all()
+        return view('admin.layouts.siswa.index_siswa', [
+            'title' => "Siswa",
+            'smallTitle' => " - Siswa",
+            'headTitle' => "Siswa",
+            'siswas' => Siswa::orderBy('nama', 'ASC')->get()
         ]);
     }
 
@@ -31,10 +32,16 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('admin.layouts.guru.create_guru', [
-            'title' => "Form Tambah Guru",
-            'smallTitle' => " - Guru",
-            'headTitle' => "Create Guru",
+        //
+    }
+
+    public function pilih_kelaz()
+    {
+        return view('admin.layouts.siswa.pilih_kelaz', [
+            'title' => "Pilih Kelas Untuk Tambah Siswa",
+            'smallTitle' => " - Siswa",
+            'headTitle' => "Pilih Kelas",
+            'kelazs' => Kelaz::all()
         ]);
     }
 
@@ -46,19 +53,21 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
+        // return request()->all();
+
         $validatedData = $request->validate([
-            'nuptk' => 'required|unique:gurus|unique:admins|min:16|max:16',
+            'nis' => 'required|unique:siswas|min:5|max:5',
             'password' => 'required|min:8|max:30',
-            'level' => 'required',
+            'kelaz_id' => 'required',
             'admin_id' => 'required',
         ]);
 
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        Guru::create($validatedData);
+        Siswa::create($validatedData);
         Alert::success('Sukses', 'Data berhasil ditambahkan !');
-        return redirect('/guru-smansabar');
+        return redirect('/siswa-smansabar');
     }
 
     /**
@@ -69,7 +78,12 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.layouts.siswa.create_siswa', [
+            'title' => "Form Tambah Siswa",
+            'smallTitle' => " - Siswa",
+            'headTitle' => "Create Siswa",
+            'kelaz' => Kelaz::find($id)
+        ]);
     }
 
     /**
@@ -103,8 +117,8 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
-        Guru::destroy($id);
+        Siswa::destroy($id);
         Alert::success('Sukses', 'Data berhasil dihapus !');
-        return redirect('/guru-smansabar');
+        return redirect('/siswa-smansabar');
     }
 }

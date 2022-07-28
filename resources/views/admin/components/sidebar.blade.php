@@ -35,7 +35,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="/siswa" class="nav-link">
+              <a href="/siswa-smansabar" class="nav-link">
                 <i class="fas fa-user-graduate nav-icon"></i>
                 <p>Siswa</p>
               </a>

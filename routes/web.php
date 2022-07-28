@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelazController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Auth\Events\Login;
 
 /*
@@ -35,12 +36,17 @@ Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], funct
   Route::get('/', [DashboardController::class, 'index']);
 });
 
+
+
 // FITUR KHUSUS ADMIN
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
   // Data Admin yang Terdafar
   Route::get('/admin-smansabar', [AdminController::class, 'index']);
   // Route Guru
   Route::resource('/guru-smansabar', GuruController::class);
+  // Route Siswa
+  Route::resource('/siswa-smansabar', SiswaController::class);
+  Route::get('/siswa-smansabars/pilih_kelaz', [SiswaController::class, 'pilih_kelaz']);
   // Route Kelas
   Route::resource('/kelaz', KelazController::class);
   // Route Angkatan

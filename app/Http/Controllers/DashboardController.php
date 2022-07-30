@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
+use App\Models\Admin;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +14,10 @@ class DashboardController extends Controller
         return view('admin.layouts.dashboard', [
             'title' => "Dashboard",
             'smallTitle' => "",
-            'headTitle' => "Dashboard"
+            'headTitle' => "Dashboard",
+            'admin' => Admin::all(),
+            'guru' => Guru::all(),
+            'siswa' => Siswa::all(),
         ]);
     }
 }

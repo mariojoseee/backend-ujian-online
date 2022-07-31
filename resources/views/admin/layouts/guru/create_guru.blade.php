@@ -34,6 +34,16 @@
                   @enderror
                 </div>
 
+                <div class="mb-3">
+                  <label for="email" class="form-label">Alamat Email</label>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" autofocus value="{{ old('email') }}"/>
+                  @error('email')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+
                 <input type="hidden" class="form-control" name="level" value="guru"/>
                 <input type="hidden" class="form-control" name="admin_id" value="{{ (Auth::guard('admin')->user()->id) }}"/>
 

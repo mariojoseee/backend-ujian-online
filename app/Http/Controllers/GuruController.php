@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class GuruController extends Controller
@@ -49,6 +51,7 @@ class GuruController extends Controller
         $validatedData = $request->validate([
             'nuptk' => 'required|unique:gurus|unique:admins|min:16|max:16',
             'password' => 'required|min:8|max:30',
+            'email' => 'required|email|unique:gurus|unique:admins',
             'level' => 'required',
             'admin_id' => 'required',
         ]);
@@ -56,7 +59,17 @@ class GuruController extends Controller
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
+        $data = [
+            'title' => 'Akun anda telah terdaftar sebagai Guru pada Website Backend Sistem Informasi Ujian Online SMAN 1 Banjar',
+            'nuptk' => $validatedData['nuptk'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+            'url' => 'http://127.0.0.1:8000/login-admin-ujian-online',
+        ];
+        Mail::to($validatedData['email'])->send(new SendMail($data));
+
         Guru::create($validatedData);
+
         Alert::success('Sukses', 'Data berhasil ditambahkan !');
         return redirect('/guru-smansabar');
     }

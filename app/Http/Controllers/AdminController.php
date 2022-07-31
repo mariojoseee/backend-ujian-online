@@ -16,4 +16,14 @@ class AdminController extends Controller
             'admins' => Admin::all()
         ]);
     }
+
+    public function profileAdmin(Admin $admin)
+    {
+        return view('admin.layouts.admin.profile_admin', [
+            'title' => "Form Edit Profile Admin",
+            'smallTitle' => " - Profile Admin",
+            'headTitle' => "Profile Admin",
+            'angkatan' => $admin
+        ]);
+    }
 }

@@ -37,11 +37,11 @@ Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], funct
 });
 
 
-
 // FITUR KHUSUS ADMIN
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
-  // Data Admin yang Terdafar
+  // Route Admin
   Route::get('/admin-smansabar', [AdminController::class, 'index']);
+  Route::get('/profile-admin', [AdminController::class, 'profileAdmin']);
   // Route Guru
   Route::resource('/guru-smansabar', GuruController::class);
   // Route Siswa

@@ -45,7 +45,7 @@
                 </div>
 
                 <input type="hidden" class="form-control" name="level" value="guru"/>
-                <input type="hidden" class="form-control" name="admin_id" value="{{ (Auth::guard('admin')->user()->id) }}"/>
+                <input type="hidden" class="form-control" name="admin_id" value="{{ Auth::guard('admin')->user()->id }}"/>
 
                 <button type="submit" class="mt-2 btn btn-primary">Tambah Guru</button>
 

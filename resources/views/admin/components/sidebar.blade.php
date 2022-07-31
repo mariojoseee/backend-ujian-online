@@ -73,32 +73,25 @@
 
         @if (Str::length(Auth::guard('guru')->user()) > 0)
           @if (Auth::guard('guru')->user()->level = 'guru')
-            <li class="nav-item ">
-              <a class="nav-link ">
-                <i class="fas fa-book-open nav-icon"></i>
-                <p>
-                  Ujian
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+            <li class="nav-item">
+              <a href="/ujian" class="nav-link">
+                <i class="fas fa-edit nav-icon"></i>
+                <p>Ujian</p>
               </a>
+            </li>
 
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/kategorikuis" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mata Pelajaran</p>
-                  </a>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <a href="/kelaz" class="nav-link">
+                <i class="fas fa-door-closed nav-icon"></i>
+                <p>Kelas</p>
+              </a>
+            </li>
 
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/kuis" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Data Ujian</p>
-                  </a>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <a href="/mapel" class="nav-link">
+                <i class="fas fa-book nav-icon"></i>
+                <p>Mata Pelajaran</p>
+              </a>
             </li>
 
             <li class="nav-item">

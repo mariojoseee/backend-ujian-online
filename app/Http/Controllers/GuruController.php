@@ -120,4 +120,14 @@ class GuruController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/guru-smansabar');
     }
+
+    public function profileGuru(Guru $guru)
+    {
+        return view('admin.layouts.guru.profile_guru', [
+            'title' => "Form Edit Profile Guru",
+            'smallTitle' => " - Profile Guru",
+            'headTitle' => "Profile Guru",
+            'angkatan' => $guru
+        ]);
+    }
 }

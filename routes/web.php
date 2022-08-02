@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
   Route::get('/profile-admin', [AdminController::class, 'profileAdmin']);
   // Route Guru
   Route::resource('/guru-smansabar', GuruController::class);
+  Route::get('/profile-guru', [GuruController::class, 'profileGuru']);
   // Route Siswa
   Route::resource('/siswa-smansabar', SiswaController::class);
   Route::get('/siswa-smansabars/pilih_kelaz', [SiswaController::class, 'pilih_kelaz']);

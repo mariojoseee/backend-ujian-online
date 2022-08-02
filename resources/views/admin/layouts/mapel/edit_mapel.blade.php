@@ -25,11 +25,12 @@
                   @enderror
                 </div>
 
+                <button type="submit" class="mt-2 btn btn-primary">Update Mata Pelajaran</button>
+                
                 <div class="text-right mt-2">
                   <a href="/angkatan"> &larr; Kembali ke data mata pelajaran</a>
                 </div>
 
-                <button type="submit" class="mt-2 btn btn-primary">Update Mata Pelajaran</button>
               </form>
 
             </div>

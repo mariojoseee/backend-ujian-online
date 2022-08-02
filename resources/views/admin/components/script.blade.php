@@ -2,6 +2,8 @@
   <script src="/admin-lte/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="/admin-lte/plugins/select2/js/select2.full.min.js"></script>
   <!-- DataTables  & Plugins -->
   <script src="/admin-lte/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -35,6 +37,14 @@
         "autoWidth": false,
         "responsive": true,
       });
+
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })
 
       $(document).ready(function() {
         $('#example').DataTable();

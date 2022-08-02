@@ -31,11 +31,15 @@ class AdminLoginController extends Controller
         return back()->with('loginError', 'Login Gagal, Periksa Inputan Data !');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         if(Auth::guard('admin')->check()){
             Auth::guard('admin')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
         }elseif (Auth::guard('guru')->check()){
             Auth::guard('guru')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
         }
         return redirect('/login-admin-ujian-online');
     }

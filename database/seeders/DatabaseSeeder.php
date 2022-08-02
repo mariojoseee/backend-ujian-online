@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Angkatan;
 use App\Models\Guru;
 use App\Models\Mapel;
 use App\Models\Siswa;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Ujian;
+use App\Models\Angkatan;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,6 +29,15 @@ class DatabaseSeeder extends Seeder
 
         Angkatan::create([
             'tahun' => '2022'
+        ]);
+
+        Ujian::create([
+            'jenis' => 'Ujian Tengah Semester (UTS)',
+            'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
+            'kelas' => 'X',
+            'semester' => 'Ganjil',
+            'mapel_id' => 4,
+            'guru_id' => 4,
         ]);
     }
 }

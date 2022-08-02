@@ -37,7 +37,7 @@ class KelazController extends Controller
             'smallTitle' => " - Kelas",
             'headTitle' => "Create Kelas",
             'jurusans' => Jurusan::all(),
-            'angkatan' => Angkatan::all()
+            'angkatans' => Angkatan::all()
         ]);
     }
 
@@ -86,7 +86,14 @@ class KelazController extends Controller
      */
     public function edit(Kelaz $kelaz)
     {
-        //
+        return view('admin.layouts.kelaz.edit_kelaz', [
+            'title' => "Form Edit Kelas",
+            'smallTitle' => " - Kelas",
+            'headTitle' => "Update Kelas",
+            'jurusans' => Jurusan::all(),
+            'angkatans' => Angkatan::all(),
+            'kelaz' => $kelaz
+        ]);
     }
 
     /**
@@ -98,7 +105,30 @@ class KelazController extends Controller
      */
     public function update(Request $request, Kelaz $kelaz)
     {
-        //
+        $rules = [
+            'jurusan_id' => 'required|max:2',
+            'angkatan_id' => 'required|max:4',
+            'nama_kelaz' => 'required|max:10'
+        ];
+
+        // if ($request->nama_kelaz != $kelaz->nama_kelaz) {
+        //     $rules['nama_kelaz'] = 'required|max:10';
+        // }
+
+        $kelaz = Kelaz::where('nama_kelaz', $request->nama_kelaz)->where('angkatan_id', $request->angkatan_id)->first();
+
+        if($kelaz){
+            Alert::error('Gagal', 'Data yang anda inputkan sudah ada !');
+            return redirect('/kelaz/'.$kelaz->id.'/edit');
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // QUERY
+        Kelaz::where('id', $kelaz->id)->update($validatedData);
+
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        return redirect('/kelaz');
     }
 
     /**

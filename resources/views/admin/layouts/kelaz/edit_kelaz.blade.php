@@ -12,11 +12,12 @@
             <!-- Card-body -->
             <div class="card-body mr-1">
 
-              <form method="post" action="/kelaz">
+              <form method="post" action="/kelaz/{{ $kelaz->id }}">
+                @method('put')
                 @csrf
                 <div class="mb-3">
                   <label for="nama_kelaz" class="form-label">Nama Kelas</label>
-                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" />
+                  <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz', $kelaz->nama_kelaz) }}" />
                   @error('nama_kelaz')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -27,9 +28,8 @@
                 <div class="mb-3">
                   <label class="form-label">Nama Jurusan</label>
                   <select class="custom-select @error('jurusan_id') is-invalid @enderror" name="jurusan_id">
-                    <option value="" selected disabled>Pilih Jurusan</option>
                     @foreach ($jurusans as $jurusan)
-                      @if (old('jurusan_id') == $jurusan->id)
+                      @if (old('jurusan_id', $kelaz->jurusan_id) == $jurusan->id)
                         <option value="{{ $jurusan->id }}" selected>{{ $jurusan->nama_jurusan }}</option>
                       @else
                         <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
@@ -46,9 +46,8 @@
                 <div class="mb-3">
                   <label class="form-label">Tahun Angkatan</label>
                   <select class="custom-select @error('angkatan_id') is-invalid @enderror" name="angkatan_id">
-                    <option value="" selected disabled>Pilih Tahun Angkatan</option>
                     @foreach ($angkatans as $angkatan)
-                      @if (old('angkatan_id') == $angkatan->id)
+                      @if (old('angkatan_id', $kelaz->angkatan_id) == $angkatan->id)
                         <option value="{{ $angkatan->id }}" selected>{{ $angkatan->tahun }}</option>
                       @else
                         <option value="{{ $angkatan->id }}">{{ $angkatan->tahun }}</option>
@@ -61,8 +60,7 @@
                     </div>
                   @enderror
                 </div>
-
-                <button type="submit" class="mt-2 btn btn-primary">Tambah Kelas</button>
+                <button type="submit" class="mt-2 btn btn-primary">Update Kelas</button>
 
                 <div class="text-right mt-2">
                   <a href="/kelaz"> &larr; Kembali ke data kelas</a>

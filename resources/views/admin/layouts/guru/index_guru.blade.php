@@ -19,9 +19,9 @@
                     <th style="width: 1%;">No.</th>
                     <th style="width: 17%;">Nama Admin</th>
                     <th style="width: 4%;">NUPTK</th>
-                    <th style="width: 5%;">Email</th>
+                    <th style="width: 4%;">Email</th>
                     <th style="width: 7%;">Nomor HP</th>
-                    <th style="width: 7%;">Aksi</th>
+                    <th style="width: 14%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,6 +33,7 @@
                       <td>{{ $guru->email }}</td>
                       <td>{{ $guru->no_telp }}</td>
                       <td class="text-right">
+                        <a href="/siswa-smansabar/{{ $guru->id }}" class="btn btn-primary btn-sm">Kelas & Mapel</a>
                         <form action="/guru-smansabar/{{ $guru->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

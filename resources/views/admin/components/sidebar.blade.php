@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link text-decoration-none text-center bg-cyan text-white">
+  <a href="/" class="brand-link text-decoration-none text-center bg-cyan text-white">
     <span class="brand-text text-white">Sistem Ujian Online</span>
   </a>
 

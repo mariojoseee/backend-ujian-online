@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Guru;
+use App\Models\Soal;
 use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Models\Ujian;
+use App\Models\Jawaban;
 use App\Models\Angkatan;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -38,6 +40,55 @@ class DatabaseSeeder extends Seeder
             'semester' => 'Ganjil',
             'mapel_id' => 4,
             'guru_id' => 4,
+        ]);
+        
+        Soal::create([
+            'soal' => 'Burger and French Fries ___ my favorite foods.',
+            'ujian_id' => 1,
+        ]);
+        
+        Soal::create([
+            'soal' => 'Do ___ ___ at least once a week?',
+            'ujian_id' => 1,
+        ]);
+
+        Soal::create([
+            'soal' => 'Does ___ ___ math for the test?',
+            'ujian_id' => 1,
+        ]);
+
+        Soal::create([
+            'soal' => 'My brother and I ___ mount Arjuno this holiday.',
+            'ujian_id' => 1,
+        ]);
+
+        Soal::create([
+            'soal' => 'The students ___ not ___ the assignment, so they got D.',
+            'ujian_id' => 1,
+        ]);
+
+        Jawaban::create([
+            'jawaban' => 'Is',
+            'keterangan' => 0,
+            'soal_id' => 1,
+        ]);
+
+        Jawaban::create([
+            'jawaban' => 'Are',
+            'keterangan' => 1,
+            'soal_id' => 1,
+        ]);
+
+        Jawaban::create([
+            'jawaban' => 'Does',
+            'keterangan' => 0,
+            'soal_id' => 1,
+        ]);
+
+        Jawaban::create([
+            'jawaban' => 'Do',
+            'keterangan' => 0,
+            'soal_id' => 1,
         ]);
     }
 }

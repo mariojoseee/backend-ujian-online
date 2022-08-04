@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ujian extends Model
+class Soal extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function mapel()
+    public function jawaban()
     {
-        return $this->belongsTo(Mapel::class);
-    }
-
-    public function guru()
-    {
-        return $this->belongsTo(Guru::class);
+        return $this->hasMany(Jawaban::class);
     }
 }

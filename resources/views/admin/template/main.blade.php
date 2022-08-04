@@ -3,6 +3,12 @@
 
 <head>
   @include('admin.components.head')
+  {{-- Menghilangkan tombol upload file pada trix-editor --}}
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,6 +58,13 @@
 
   {{-- Sweet Alert RealRashid --}}
   @include('sweetalert::alert')
+
+  {{-- Menghilangkan fungsi upload file pada trix-editor --}}
+  <script>
+    document.addEventListener('trix-file-accept', function(e){
+      e.preventDefault();
+    })
+  </script>
 </body>
 
 {{-- @yield('sweetalert-js') --}}

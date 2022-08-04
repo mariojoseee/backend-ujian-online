@@ -6,6 +6,7 @@ use App\Http\Controllers\AngkatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailUjianController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelazController;
 use App\Http\Controllers\MapelController;
@@ -63,4 +64,6 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::get('/profile-guru', [GuruController::class, 'profileGuru']);
   // Route Ujian
   Route::resource('/ujian', UjianController::class);
+  // Route Detail Ujian
+  Route::resource('/detail-ujian', DetailUjianController::class);
 });

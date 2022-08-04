@@ -15,3 +15,6 @@
 <link rel="stylesheet" href="/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/admin-lte/dist/css/adminlte.min.css">
+<!-- Trix Editor -->
+<link rel="stylesheet" type="text/css" href="/trix-editor/trix.css">
+<script type="text/javascript" src="/trix-editor/trix.js"></script>

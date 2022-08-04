@@ -34,7 +34,7 @@
                       <td>{{ $ujian->mapel->nama_mapel }}</td>
                       <td class="text-right">
                         <a href="#" class="btn btn-warning btn-sm">Nonaktif</a>
-                        <a href="#" class="btn btn-info btn-sm">Detail</a>
+                        <a href="/ujian/{{ $ujian->id }}" class="btn btn-info btn-sm">Soal</a>
                         <a href="/ujian/{{ $ujian->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/ujian/{{ $ujian->id }}" method="post" class="d-inline">
                           @method('delete')

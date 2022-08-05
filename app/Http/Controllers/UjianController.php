@@ -72,13 +72,7 @@ class UjianController extends Controller
     // FUNGSI UNTUK MENAMPILKAN DETAIL UJIAN (TAMPIL DATA SOAL TERKAIT JENIS UJIAN YANG DIPILIH)
     public function show($id)
     {
-        return view('admin.layouts.ujian.detail_ujian.soal_ujian', [
-            'title' => "Data Soal Ujian",
-            'smallTitle' => " - Soal Ujian",
-            'headTitle' => "Soal Ujian",
-            'soals' => Soal::where('ujian_id', $id)->get(),
-            'ujian' => Ujian::find($id)
-        ]);
+
     }
 
     /**

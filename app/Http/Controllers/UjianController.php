@@ -69,7 +69,6 @@ class UjianController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // FUNGSI UNTUK MENAMPILKAN DETAIL UJIAN (TAMPIL DATA SOAL TERKAIT JENIS UJIAN YANG DIPILIH)
     public function show($id)
     {
 

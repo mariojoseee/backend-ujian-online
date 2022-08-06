@@ -69,25 +69,25 @@ class DatabaseSeeder extends Seeder
 
         Jawaban::create([
             'jawaban' => 'Is',
-            'keterangan' => 0,
+            'keterangan' => 'Salah',
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Are',
-            'keterangan' => 1,
+            'keterangan' => 'Benar',
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Does',
-            'keterangan' => 0,
+            'keterangan' => 'Salah',
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Do',
-            'keterangan' => 0,
+            'keterangan' => 'Salah',
             'soal_id' => 1,
         ]);
     }

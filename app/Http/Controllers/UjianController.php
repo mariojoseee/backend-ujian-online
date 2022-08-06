@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Soal;
 use App\Models\Mapel;
 use App\Models\Ujian;
 use Illuminate\Http\Request;
@@ -53,6 +52,7 @@ class UjianController extends Controller
             'deskripsi' => 'max:255',
             'kelas' => 'required|max:3',
             'semester' => 'required|max:6',
+            'status' => 'required',
             'mapel_id' => 'required',
             'guru_id' => 'required',
         ]);
@@ -115,6 +115,22 @@ class UjianController extends Controller
         Alert::success('Sukses', 'Data berhasil diupdate !');
         return redirect('/ujian');
     }
+
+    public function statusUjian($id)
+    {
+        $ujian = Ujian::find($id);        
+        if($ujian->status == 'Aktif'){
+            $ujian->status = 'Nonaktif';
+            $ujian->update();
+            alert()->success('Status Ujian Nonaktif', 'Berhasil')->toToast();
+        } else{
+            $ujian->status = 'Aktif';
+            $ujian->update();
+            alert()->success('Status Ujian Aktif', 'Berhasil')->toToast();
+        }
+        return redirect('/ujian'); 
+    }
+
 
     /**
      * Remove the specified resource from storage.

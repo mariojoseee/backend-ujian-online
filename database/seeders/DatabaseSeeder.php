@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
             'kelas' => 'X',
             'semester' => 'Ganjil',
+            'status' => 'Nonaktif',
             'mapel_id' => 4,
             'guru_id' => 4,
         ]);

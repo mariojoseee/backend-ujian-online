@@ -16,12 +16,12 @@
               <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
                 <thead>
                   <tr>
-                    <th style="width: 1%;">No.</th>
-                    <th style="width: 7%;">Jenis Ujian</th>
+                    <th style="width: 0.5%;">No.</th>
+                    <th style="width: 8%;">Jenis Ujian</th>
                     <th style="width: 1%;">Kelas</th>
                     <th style="width: 1%;">Semester</th>
-                    <th style="width: 6%;">Mapel</th>
-                    <th style="width: 8%;">Aksi</th>
+                    <th style="width: 8%;">Mapel</th>
+                    <th style="width: 9%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,21 @@
                       <td>{{ $ujian->semester }}</td>
                       <td>{{ $ujian->mapel->nama_mapel }}</td>
                       <td class="text-right">
-                        <a href="#" class="btn btn-warning btn-sm">Nonaktif</a>
+                        @if ($ujian->status == "Aktif")
+                          {{-- SET UJIAN NONAKTIF --}}
+                          <form action="/ujian/status-ujian/{{ $ujian->id }}" class="d-inline" method="post">
+                            @csrf
+                            @method('put')
+                            <button class="btn btn-success btn-sm" onclick="return confirm('Apakah status ujian ini ingin dinonaktifkan?')">Aktif</button>
+                          </form>
+                        @elseif ($ujian->status == "Nonaktif")
+                          {{-- SET UJIAN AKTIF --}}
+                          <form action="/ujian/status-ujian/{{ $ujian->id }}" class="d-inline" method="post">
+                            @csrf
+                            @method('put')
+                            <button class="btn btn-warning btn-sm" onclick="return confirm('Apakah status ujian ini ingin diaktifkan?')">Nonaktif</button>
+                          </form>
+                        @endif
                         <a href="/ujian/soal-ujian/{{ $ujian->id }}" class="btn btn-info btn-sm">Soal</a>
                         <a href="/ujian/{{ $ujian->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/ujian/{{ $ujian->id }}" method="post" class="d-inline">

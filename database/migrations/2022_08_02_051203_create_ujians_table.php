@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->string('kelas');
             $table->string('semester');
+            $table->string('status');
             $table->foreignId('mapel_id');
             $table->foreignId('guru_id');
             $table->timestamps();

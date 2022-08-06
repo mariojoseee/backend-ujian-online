@@ -91,9 +91,9 @@
               <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
                 <thead>
                   <tr>
-                    <th style="width: 1%;">No.</th>
-                    <th style="width: 20%;">Soal</th>
-                    <th style="width: 8%;">Aksi</th>
+                    <th style="width: 3%;">No.</th>
+                    <th style="width: 50%;">Soal</th>
+                    <th style="width: 20%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>

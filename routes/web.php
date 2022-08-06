@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::get('/profile-guru', [GuruController::class, 'profileGuru']);
   // Route Ujian
   Route::resource('/ujian', UjianController::class);
+  Route::put('/ujian/status-ujian/{id}', [UjianController::class, 'statusUjian']);
   // Route Tampil Soal Ujian beserta Form Tambahnya
   Route::get('/ujian/soal-ujian/{id}', [SoalJawabanController::class, 'soalUjian']);
   // Route Store Soal Ujian dan Hapus

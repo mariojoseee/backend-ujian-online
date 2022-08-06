@@ -87,6 +87,7 @@
                 </div>
 
                 <input type="hidden" class="form-control" name="guru_id" value="{{ Auth::guard('guru')->user()->id }}"/>
+                <input type="hidden" class="form-control" name="status" value="Nonaktif"/>
 
                 <button type="submit" class="mt-2 btn btn-primary">Tambah Ujian</button>
 

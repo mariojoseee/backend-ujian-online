@@ -67,12 +67,16 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   // Route Ujian
   Route::resource('/ujian', UjianController::class);
   Route::put('/ujian/status-ujian/{id}', [UjianController::class, 'statusUjian']);
-  // Route CRUD Ujian
+  // Route CRUD Soal Ujian
   Route::get('/ujian/soal-ujian/{id}', [SoalJawabanController::class, 'soalUjian']);
   Route::post('/ujian/soal-ujian', [SoalJawabanController::class, 'storeSoal']);
   Route::get('/ujian/soal-ujian/edit/{id}', [SoalJawabanController::class, 'editSoal']);
   Route::put('/ujian/soal-ujian/{id}', [SoalJawabanController::class, 'updateSoal']);
   Route::delete('/ujian/soal-ujian/{id}', [SoalJawabanController::class, 'destroySoal']);
-  // Route Tampil Jawaban Ujian beserta Form Tambahnya
+  // Route CRUD Jawaban Ujian
   Route::get('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'jawabanUjian']);
+  Route::post('/ujian/jawaban-ujian', [SoalJawabanController::class, 'storeJawaban']);
+  Route::get('/ujian/jawaban-ujian/edit/{id}', [SoalJawabanController::class, 'editJawaban']);
+  Route::put('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'updateJawaban']);
+  Route::delete('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'destroyJawaban']);
 });

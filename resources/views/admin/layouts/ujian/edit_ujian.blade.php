@@ -19,13 +19,8 @@
                 <div class="mb-3">
                   <label class="form-label">Jenis Ujian</label>
                   <select class="custom-select @error('jenis') is-invalid @enderror" name="jenis">
-                    @if ($ujian->jenis == 'Ujian Tengah Semester (UTS)')
-                      <option value="Ujian Tengah Semester (UTS)">Ujian Tengah Semester (UTS)</option>
-                      <option value="Ujian Akhir Semester (UAS)">Ujian Akhir Semester (UAS)</option>
-                    @else
-                      <option value="Ujian Akhir Semester (UAS)">Ujian Akhir Semester (UAS)</option>
-                      <option value="Ujian Tengah Semester (UTS)">Ujian Tengah Semester (UTS)</option>
-                    @endif
+                    <option value="Ujian Tengah Semester (UTS)" {{ old('jenis', $ujian->jenis) == 'Ujian Tengah Semester (UTS)' ? 'selected' : '' }}>Ujian Tengah Semester (UTS)</option>
+                    <option value="Ujian Akhir Semester (UAS)" {{ old('jenis', $ujian->jenis) == 'Ujian Akhir Semester (UAS)' ? 'selected' : '' }}>Ujian Akhir Semester (UAS)</option>
                   </select>
                   @error('jenis')
                     <div class="invalid-feedback">
@@ -55,19 +50,9 @@
                 <div class="mb-3">
                   <label class="form-label">Kategori Kelas</label>
                   <select class="custom-select @error('kelas') is-invalid @enderror" name="kelas">
-                    @if ($ujian->kelas == 'X')
-                      <option value="X">Kelas X</option>
-                      <option value="XI">Kelas XI</option>
-                      <option value="XII">Kelas XII</option>
-                    @elseif ($ujian->kelas == 'XI')
-                      <option value="XI">Kelas XI</option>
-                      <option value="X">Kelas X</option>
-                      <option value="XII">Kelas XII</option>
-                    @else
-                      <option value="XII">Kelas XII</option>
-                      <option value="XI">Kelas XI</option>
-                      <option value="X">Kelas X</option>
-                    @endif
+                    <option value="X" {{ old('kelas', $ujian->kelas) == 'X' ? 'selected' : '' }}>Kelas X</option>
+                    <option value="XI" {{ old('kelas', $ujian->kelas) == 'XI' ? 'selected' : '' }}>Kelas XI</option>
+                    <option value="XII" {{ old('kelas', $ujian->kelas) == 'XII' ? 'selected' : '' }}>Kelas XII</option>
                   </select>
                   @error('kelas')
                     <div class="invalid-feedback">
@@ -79,13 +64,8 @@
                 <div class="mb-3">
                   <label class="form-label">Semester</label>
                   <select class="custom-select @error('semester') is-invalid @enderror" name="semester">
-                    @if ($ujian->semester == 'Ganjil')
-                      <option value="Ganjil">Semester Ganjil</option>
-                      <option value="Genap">Semester Genap</option>
-                    @else
-                      <option value="Genap">Semester Genap</option>
-                      <option value="Ganjil">Semester Ganjil</option>
-                    @endif
+                    <option value="Ganjil" {{ old('semester', $ujian->semester) == 'Ganjil' ? 'selected' : '' }}>Semester Ganjil</option>
+                    <option value="Genap" {{ old('semester', $ujian->semester) == 'Genap' ? 'selected' : '' }}>Semester Genap</option>
                   </select>
                   @error('semester')
                     <div class="invalid-feedback">

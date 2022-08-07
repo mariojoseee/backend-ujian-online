@@ -37,7 +37,7 @@
                 <button type="submit" class="mt-4 btn btn-primary">Update Soal</button>
               </form>
               <div class="text-right mt-4 mb-2">
-                <a href="/ujian/soal-ujian/{{ $soal->ujian_id }}"> &larr; Kembali ke soal ujian</a>
+                <a href="/ujian/soal-ujian/{{ $soal->ujian_id }}"> &larr; Kembali ke data soal ujian</a>
               </div>
             </div>
           </div>

@@ -18,8 +18,8 @@
                   <label class="form-label">Jenis Ujian</label>
                   <select class="custom-select @error('jenis') is-invalid @enderror" name="jenis">
                     <option value="" selected disabled>Pilih Jenis Ujian</option>
-                    <option value="Ujian Tengah Semester (UTS)">Ujian Tengah Semester (UTS)</option>
-                    <option value="Ujian Akhir Semester (UAS)">Ujian Akhir Semester (UAS)</option>
+                    <option value="Ujian Tengah Semester (UTS)" {{ old('jenis') == 'Ujian Tengah Semester (UTS)' ? 'selected' : '' }}>Ujian Tengah Semester (UTS)</option>
+                    <option value="Ujian Akhir Semester (UAS)" {{ old('jenis') == 'Ujian Akhir Semester (UAS)' ? 'selected' : '' }}>Ujian Akhir Semester (UAS)</option>
                   </select>
                   @error('jenis')
                     <div class="invalid-feedback">
@@ -51,9 +51,9 @@
                   <label class="form-label">Kategori Kelas</label>
                   <select class="custom-select @error('kelas') is-invalid @enderror" name="kelas">
                     <option value="" selected disabled>Pilih Kategori Kelas</option>
-                    <option value="X">Kelas X</option>
-                    <option value="XI">Kelas XI</option>
-                    <option value="XII">Kelas XII</option>
+                    <option value="X" {{ old('kelas') == 'X' ? 'selected' : '' }}>Kelas X</option>
+                    <option value="XI" {{ old('kelas') == 'XI' ? 'selected' : '' }}>Kelas XI</option>
+                    <option value="XII" {{ old('kelas') == 'XII' ? 'selected' : '' }}>Kelas XII</option>
                   </select>
                   @error('kelas')
                     <div class="invalid-feedback">
@@ -66,8 +66,8 @@
                   <label class="form-label">Semester</label>
                   <select class="custom-select @error('semester') is-invalid @enderror" name="semester">
                     <option value="" selected disabled>Pilih Semester</option>
-                    <option value="Ganjil">Semester Ganjil</option>
-                    <option value="Genap">Semester Genap</option>
+                    <option value="Ganjil" {{ old('semester') == 'Ganjil' ? 'selected' : '' }}>Semester Ganjil</option>
+                    <option value="Genap" {{ old('semester') == 'Genap' ? 'selected' : '' }}>Semester Genap</option>
                   </select>
                   @error('semester')
                     <div class="invalid-feedback">
@@ -80,14 +80,14 @@
                   <label class="form-label">Deskripsi</label>
                   <textarea class="form-control @error('deskripsi') is-invalid @enderror" rows="3" name="deskripsi" placeholder="Inputkan deskripsi singkat terkait ujian yang dibuat . . .">{{ old('deskripsi') }}</textarea>
                   @error('deskripsi')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
-                <input type="hidden" class="form-control" name="guru_id" value="{{ Auth::guard('guru')->user()->id }}"/>
-                <input type="hidden" class="form-control" name="status" value="Nonaktif"/>
+                <input type="hidden" class="form-control" name="guru_id" value="{{ Auth::guard('guru')->user()->id }}" />
+                <input type="hidden" class="form-control" name="status" value="Nonaktif" />
 
                 <button type="submit" class="mt-2 btn btn-primary">Tambah Ujian</button>
 

@@ -93,6 +93,7 @@
                   <tr>
                     <th style="width: 3%;">No.</th>
                     <th style="width: 50%;">Soal</th>
+                    {{-- <th style="width: 7%;">Jawaban</th> --}}
                     <th style="width: 20%;">Aksi</th>
                   </tr>
                 </thead>
@@ -101,9 +102,10 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{!! $soal->soal !!}</td>
+                      {{-- <td>{{ $jawaban }}</td> --}}
                       <td class="text-right">
                         <a href="/ujian/jawaban-ujian/{{ $soal->id }}" class="btn btn-success btn-sm">Tambah Jawaban</a>
-                        <a href="/ujian/{{ $soal->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/ujian/soal-ujian/edit/{{ $soal->id }}" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/ujian/soal-ujian/{{ $soal->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

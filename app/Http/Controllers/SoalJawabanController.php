@@ -57,4 +57,29 @@ class SoalJawabanController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/ujian/soal-ujian/'.$ujian_id);
     }
+
+    public function editSoal($id)
+    {
+        return view('admin.layouts.ujian.soal.edit_soal', [
+            'title' => "Edit Soal Ujian",
+            'smallTitle' => " - Soal Ujian",
+            'headTitle' => "Update Soal Ujian",
+            'soal' => Soal::find($id),
+        ]);
+    }
+
+    public function updateSoal(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'soal' => 'required',
+            'ujian_id' => 'required'
+        ]);
+
+        // QUERY
+        Soal::where('id', $id)->update($validatedData);
+
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        $soal = Soal::find($id);
+        return redirect('/ujian/soal-ujian/'.$soal->ujian_id);
+    }
 }

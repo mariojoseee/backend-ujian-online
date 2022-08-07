@@ -33,7 +33,7 @@
 
               </div>
               <div class="text-right mt-4 mb-2">
-                <a href="/ujian"> &larr; Kembali ke data soal ujian</a>
+                <a href="/ujian/soal-ujian/"> &larr; Kembali ke data soal ujian</a>
               </div>
             </div>
           </div>
@@ -77,6 +77,7 @@
                 </div>
 
               </div>
+              <button type="submit" class="mb-2 btn btn-primary">Tambah Jawaban</button>
             </div>
           </div>
 

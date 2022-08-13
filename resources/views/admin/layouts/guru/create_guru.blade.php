@@ -19,7 +19,7 @@
                   <input type="number" class="form-control @error('nuptk') is-invalid @enderror" id="nuptk" name="nuptk" autofocus value="{{ old('nuptk') }}"/>
                   @error('nuptk')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom NUPTK harus diisi
                     </div>
                   @enderror
                 </div>
@@ -29,7 +29,7 @@
                   <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}"/>
                   @error('password')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom password harus diisi
                     </div>
                   @enderror
                 </div>
@@ -39,7 +39,7 @@
                   <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}"/>
                   @error('email')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom alamat email harus diisi
                     </div>
                   @enderror
                 </div>

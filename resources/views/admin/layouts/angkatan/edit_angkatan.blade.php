@@ -20,12 +20,12 @@
                   <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="{{ old('tahun', $angkatan->tahun) }}"/>
                   @error('tahun')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom tahun angkatan harus diisi
                     </div>
                   @enderror
                 </div>
 
-                <button type="submit" class="mt-2 btn btn-primary">Update Angkatan</button>
+                <button type="submit" class="mt-2 btn btn-primary">Ubah Angkatan</button>
                 
                 <div class="text-right mt-2">
                   <a href="/angkatan"> &larr; Kembali ke data angkatan</a>

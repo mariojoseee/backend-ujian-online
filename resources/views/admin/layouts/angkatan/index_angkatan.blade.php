@@ -27,7 +27,7 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $angkatan->tahun }}</td>
                       <td class="text-right">
-                        <a href="/angkatan/{{ $angkatan->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/angkatan/{{ $angkatan->id }}/edit" class="btn btn-primary btn-sm">Ubah</a>
                         <form action="/angkatan/{{ $angkatan->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

@@ -19,7 +19,7 @@
                   <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" autofocus value="{{ old('nama_jurusan') }}"/>
                   @error('nama_jurusan')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom nama jurusan harus diisi
                     </div>
                   @enderror
                 </div>
@@ -29,7 +29,7 @@
                   <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}"/>
                   @error('singkatan')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom singkatan jurusan harus diisi
                     </div>
                   @enderror
                 </div>

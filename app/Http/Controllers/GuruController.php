@@ -36,7 +36,7 @@ class GuruController extends Controller
     public function create()
     {
         return view('admin.layouts.guru.create_guru', [
-            'title' => "Form Registasi Akun Guru",
+            'title' => "Form Registrasi Akun Guru",
             'smallTitle' => " - Guru",
             'headTitle' => "Create Guru",
         ]);

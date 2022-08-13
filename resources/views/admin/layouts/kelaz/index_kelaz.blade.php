@@ -31,7 +31,7 @@
                       <td>{{ $kelaz->jurusan->nama_jurusan }}</td>
                       <td>{{ $kelaz->angkatan->tahun }}</td>
                       <td class="text-right">
-                        <a href="/kelaz/{{ $kelaz->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/kelaz/{{ $kelaz->id }}/edit" class="btn btn-primary btn-sm">Ubah</a>
                         <form action="/kelaz/{{ $kelaz->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

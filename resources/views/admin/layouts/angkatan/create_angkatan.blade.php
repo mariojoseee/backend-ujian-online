@@ -19,7 +19,7 @@
                   <input type="number" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" autofocus value="{{ old('tahun') }}"/>
                   @error('tahun')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom tahun angkatan harus diisi
                     </div>
                   @enderror
                 </div>

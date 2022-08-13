@@ -19,13 +19,13 @@
                   <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" />
                   @error('nama_kelaz')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom nama kelas harus diisi
                     </div>
                   @enderror
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Nama Jurusan</label>
+                  <label class="form-label">Jurusan</label>
                   <select class="custom-select @error('jurusan_id') is-invalid @enderror" name="jurusan_id">
                     <option value="" selected disabled>Pilih Jurusan</option>
                     @foreach ($jurusans as $jurusan)
@@ -38,7 +38,7 @@
                   </select>
                   @error('jurusan_id')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Pilih salah satu dari jurusan diatas
                     </div>
                   @enderror
                 </div>
@@ -57,7 +57,7 @@
                   </select>
                   @error('angkatan_id')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Pilih salah satu dari tahun angkatan diatas
                     </div>
                   @enderror
                 </div>

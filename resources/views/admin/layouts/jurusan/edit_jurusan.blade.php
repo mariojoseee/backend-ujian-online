@@ -20,7 +20,7 @@
                   <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" value="{{ old('nama_jurusan', $jurusan->nama_jurusan) }}"/>
                   @error('nama_jurusan')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom nama jurusan harus diisi
                     </div>
                   @enderror
                 </div>
@@ -30,12 +30,12 @@
                   <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan', $jurusan->singkatan) }}" />
                   @error('singkatan')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom singkatan jurusan harus diisi
                     </div>
                   @enderror
                 </div>
                 
-                <button type="submit" class="mt-2 btn btn-primary">Update Jurusan</button>
+                <button type="submit" class="mt-2 btn btn-primary">Ubah Jurusan</button>
                 
                 <div class="text-right mt-2">
                   <a href="/jurusan"> &larr; Kembali ke data jurusan</a>

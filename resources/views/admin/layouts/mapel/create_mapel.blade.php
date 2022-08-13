@@ -19,7 +19,7 @@
                   <input type="text" class="form-control @error('nama_mapel') is-invalid @enderror" id="nama_mapel" name="nama_mapel" autofocus value="{{ old('nama_mapel') }}"/>
                   @error('nama_mapel')
                     <div class="invalid-feedback">
-                      {{ $message }}
+                      Kolom nama mata pelajaran harus diisi
                     </div>
                   @enderror
                 </div>

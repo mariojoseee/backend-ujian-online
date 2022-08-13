@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmailGuru;
 use App\Models\Guru;
-use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -31,10 +31,12 @@ class GuruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // Registrasi Akun Siswa
     public function create()
     {
         return view('admin.layouts.guru.create_guru', [
-            'title' => "Form Tambah Guru",
+            'title' => "Form Registasi Akun Guru",
             'smallTitle' => " - Guru",
             'headTitle' => "Create Guru",
         ]);
@@ -56,17 +58,20 @@ class GuruController extends Controller
             'admin_id' => 'required',
         ]);
 
+        $password = $request->password;
+
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
+        // Kirim EMAIL
         $data = [
             'title' => 'Akun anda telah terdaftar sebagai Guru pada Website Backend Sistem Informasi Ujian Online SMAN 1 Banjar',
             'nuptk' => $validatedData['nuptk'],
             'email' => $validatedData['email'],
-            'password' => $validatedData['password'],
+            'password' => $password,
             'url' => 'http://127.0.0.1:8000/login-admin-ujian-online',
         ];
-        Mail::to($validatedData['email'])->send(new SendMail($data));
+        Mail::to($validatedData['email'])->send(new SendEmailGuru($data));
 
         Guru::create($validatedData);
 

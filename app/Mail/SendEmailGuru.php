@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class SendEmailGuru extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,7 +30,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('admin.template.email')
+        return $this->markdown('admin.template.email_guru')
         ->subject('Pemberitahuan Penting!')
         ->with('data', $this->data);
     }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelaz;
 use App\Models\Siswa;
+use App\Mail\SendEmailSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
@@ -58,12 +60,25 @@ class SiswaController extends Controller
         $validatedData = $request->validate([
             'nis' => 'required|unique:siswas|min:5|max:5',
             'password' => 'required|min:8|max:30',
+            'email' => 'required|email|unique:siswas|unique:gurus|unique:admins',
             'kelaz_id' => 'required',
             'admin_id' => 'required',
         ]);
 
+        $password = $request->password;
+
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // Kirim EMAIL
+        $data = [
+            'title' => 'Akun anda telah terdaftar sebagai siswa pada Website Ujian Online SMAN 1 Banjar',
+            'nis' => $validatedData['nis'],
+            'email' => $validatedData['email'],
+            'password' => $password,
+            'url' => 'http://127.0.0.1:8000/login',
+        ];
+        Mail::to($validatedData['email'])->send(new SendEmailSiswa($data));
 
         Siswa::create($validatedData);
         Alert::success('Sukses', 'Data berhasil ditambahkan !');
@@ -76,10 +91,12 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Registrasi Akun Siswa
     public function show($id)
     {
         return view('admin.layouts.siswa.create_siswa', [
-            'title' => "Form Tambah Siswa",
+            'title' => "Form Registrasi Akun Siswa",
             'smallTitle' => " - Siswa",
             'headTitle' => "Create Siswa",
             'kelaz' => Kelaz::find($id)

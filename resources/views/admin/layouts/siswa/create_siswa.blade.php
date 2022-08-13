@@ -34,6 +34,16 @@
                   @enderror
                 </div>
 
+                <div class="mb-3">
+                  <label for="email" class="form-label">Alamat Email</label>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}"/>
+                  @error('email')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+
                 {{-- PEMBERITAHUAN INPUTAN DATA KELAS PADA TABEL SISWA --}}
                 <div class="mb-3">
                   <label class="form-label">Jurusan</label>

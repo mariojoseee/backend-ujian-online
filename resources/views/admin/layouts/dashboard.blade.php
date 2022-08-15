@@ -79,7 +79,7 @@
                       <input disabled type="text" class="form-control" value="{{ Auth::guard('admin')->user()->no_telp }}" />
                     </div>
                   </div>
-                  <a href="/profile-admin" class="btn btn-primary">Edit Profile</a>
+                  <a href="/profile-admin" class="btn btn-primary">Ubah Profile</a>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@
                       <input disabled type="text" class="form-control" value="{{ Auth::guard('guru')->user()->no_telp }}" />
                     </div>
                   </div>
-                  <a href="/profile-guru" class="btn btn-primary">Edit Profile</a>
+                  <a href="/profile-guru" class="btn btn-primary">Ubah Profile</a>
                 </div>
               </div>
             </div>

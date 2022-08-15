@@ -33,7 +33,7 @@
                       <td>{{ $guru->email }}</td>
                       <td>{{ $guru->no_telp }}</td>
                       <td class="text-right">
-                        <a href="/siswa-smansabar/{{ $guru->id }}" class="btn btn-primary btn-sm">Kelas & Mapel</a>
+                        <a href="/guru-smansabars/kelaz-mapel/{{ $guru->id }}" class="btn btn-primary btn-sm">Kelas & Mapel</a>
                         <form action="/guru-smansabar/{{ $guru->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

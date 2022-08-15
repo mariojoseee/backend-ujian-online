@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendEmailGuru;
 use App\Models\Guru;
+use App\Models\Kelaz;
+use App\Models\Mapel;
+use App\Mail\SendEmailGuru;
+use App\Models\GuruKelazMapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -133,6 +136,21 @@ class GuruController extends Controller
             'smallTitle' => " - Profile Guru",
             'headTitle' => "Profile Guru",
             'angkatan' => $guru
+        ]);
+    }
+
+    // Index kelas dan mapel yang diajar oleh guru berdasarkan id guru
+    public function kelazMapel($id)
+    {
+        // $data_ajar_guru =  Guru::with(['kelazs', 'mapels'])->get();
+        return view('admin.layouts.guru.kelaz_mapel', [
+            'title' => "Data Kelas dan Mapel yang diajar Guru",
+            'smallTitle' => " - Kelas & Mapel Guru",
+            'headTitle' => "Soal Ujian",
+            'mapels' => Mapel::all(),
+            'kelazs' => Kelaz::all(),
+            'guru' => Guru::find($id),
+            'data_ajar' => GuruKelazMapel::where('guru_id', $id)->get()
         ]);
     }
 }

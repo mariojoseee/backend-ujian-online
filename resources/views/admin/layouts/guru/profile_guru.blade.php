@@ -36,16 +36,6 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ Auth::guard('guru')->user()->password }}" />
-                  @error('password')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
-                </div>
-
-                <div class="mb-3">
                   <label for="nama" class="form-label">Nama Lengkap</label>
                   <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ Auth::guard('guru')->user()->nama }}" />
                   @error('nama')
@@ -65,7 +55,8 @@
                   @enderror
                 </div>
 
-                <button type="submit" class="mt-2 btn btn-primary">Update Profile</button>
+                <button type="submit" class="mt-2 btn btn-primary">Ubah Profile</button>
+                <button type="submit" class="mt-2 btn btn-danger">Ubah Password</button>
 
                 <div class="text-right mt-2">
                   <a href="/"> &larr; Kembali ke dashboard</a>

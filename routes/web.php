@@ -12,7 +12,9 @@ use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SoalJawabanController;
 use App\Http\Controllers\UjianController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Auth\Events\Login;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +82,7 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::put('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'updateJawaban']);
   Route::delete('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'destroyJawaban']);
 });
+
+//Route landing
+Route::get('/fitur', [LandingController::class, 'landing']);
+Route::get('/about', [LandingController::class, 'landingabout']);

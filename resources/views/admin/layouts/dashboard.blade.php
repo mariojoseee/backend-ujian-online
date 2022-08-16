@@ -47,7 +47,7 @@
             <div class="container-fluid">
               <div class="card card-default">
                 <div class="card-header">
-                  <h3 class="card-title">Profile Akun</h3>
+                  <h3 class="card-title">Profil Akun</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -79,7 +79,7 @@
                       <input disabled type="text" class="form-control" value="{{ Auth::guard('admin')->user()->no_telp }}" />
                     </div>
                   </div>
-                  <a href="/profile-admin" class="btn btn-primary">Ubah Profile</a>
+                  <a href="/profil-admin" class="btn btn-primary">Ubah Profil</a>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="container-fluid">
               <div class="card card-default">
                 <div class="card-header">
-                  <h3 class="card-title">Profile Akun</h3>
+                  <h3 class="card-title">Profil Akun</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -160,7 +160,7 @@
                       <input disabled type="text" class="form-control" value="{{ Auth::guard('guru')->user()->no_telp }}" />
                     </div>
                   </div>
-                  <a href="/profile-guru" class="btn btn-primary">Ubah Profile</a>
+                  <a href="/profil-guru" class="btn btn-primary">Ubah Profil</a>
                 </div>
               </div>
             </div>

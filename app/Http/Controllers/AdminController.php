@@ -21,14 +21,38 @@ class AdminController extends Controller
         ]);
     }
 
-    public function profileAdmin(Admin $admin)
+    public function profilAdmin()
     {
-        return view('admin.layouts.admin.profile_admin', [
-            'title' => "Form Edit Profile Admin",
-            'smallTitle' => " - Profile Admin",
-            'headTitle' => "Profile Admin",
-            'angkatan' => $admin
+        return view('admin.layouts.admin.profil_admin', [
+            'title' => "Form Edit Profil Admin",
+            'smallTitle' => " - Profil Admin",
+            'headTitle' => "Profil Admin",
         ]);
+    }
+
+    public function updateProfilAdmin(Request $request)
+    {
+        $data_admin =  Admin::find(auth('admin')->user()->id);
+        $rules = [
+            'nuptk' => 'required',
+            'nama' => 'required',
+        ];
+
+        if ($request->email != $data_admin->email) {
+            $rules['email'] = 'required|email:dns|unique:gurus|unique:admins';
+        }
+
+        if ($request->no_telp != $data_admin->no_telp) {
+            $rules['no_telp'] = 'required|unique:gurus|unique:admins|max:13';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // QUERY
+        Admin::where('id', auth('admin')->user()->id)->update($validatedData);
+
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        return redirect('/');
     }
 
     public function editPasswordAdmin()

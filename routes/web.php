@@ -44,9 +44,10 @@ Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], funct
 
 // FITUR KHUSUS ADMIN
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
-  // Route Admin dan Profile
+  // Route Admin dan Profil
   Route::get('/admin-smansabar', [AdminController::class, 'index']);
-  Route::get('/profile-admin', [AdminController::class, 'profileAdmin']);
+  Route::get('/profil-admin', [AdminController::class, 'profilAdmin']);
+  Route::put('/profil-admin/update', [AdminController::class, 'updateProfilAdmin']);
   Route::get('/edit-password-admin', [AdminController::class, 'editPasswordAdmin']);
   Route::put('/update-password-admin', [AdminController::class, 'updatePasswordAdmin']);
   // Route Guru
@@ -70,8 +71,9 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
 
 // FITUR KHUSUS GURU
 Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
-  // Route Profile Guru
-  Route::get('/profile-guru', [GuruController::class, 'profileGuru']);
+  // Route Profil Guru
+  Route::get('/profil-guru', [GuruController::class, 'profilGuru']);
+  Route::put('/profil-guru/update', [GuruController::class, 'updateProfilGuru']);
   Route::get('/edit-password-guru', [GuruController::class, 'editPasswordGuru']);
   Route::put('/update-password-guru', [GuruController::class, 'updatePasswordGuru']);
   // Route Ujian

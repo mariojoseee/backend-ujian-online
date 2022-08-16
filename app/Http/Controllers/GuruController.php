@@ -131,14 +131,39 @@ class GuruController extends Controller
         return redirect('/guru-smansabar');
     }
 
-    public function profileGuru(Guru $guru)
+    public function profilGuru(Guru $guru)
     {
-        return view('admin.layouts.guru.profile_guru', [
-            'title' => "Form Edit Profile Guru",
-            'smallTitle' => " - Profile Guru",
-            'headTitle' => "Profile Guru",
+        return view('admin.layouts.guru.profil_guru', [
+            'title' => "Form Edit Profil Guru",
+            'smallTitle' => " - Profil Guru",
+            'headTitle' => "Profil Guru",
             'angkatan' => $guru
         ]);
+    }
+
+    public function updateProfilGuru(Request $request)
+    {
+        $data_guru =  Guru::find(auth('guru')->user()->id);
+        $rules = [
+            'nuptk' => 'required',
+            'nama' => 'required',
+        ];
+
+        if ($request->email != $data_guru->email) {
+            $rules['email'] = 'required|email:dns|unique:gurus|unique:admins';
+        }
+
+        if ($request->no_telp != $data_guru->no_telp) {
+            $rules['no_telp'] = 'required|unique:gurus|unique:admins|max:13';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // QUERY
+        Guru::where('id', auth('guru')->user()->id)->update($validatedData);
+
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        return redirect('/');
     }
 
     public function editPasswordGuru()
@@ -186,32 +211,32 @@ class GuruController extends Controller
         ]);
     }
 
-        // Tambah kelas dan mapel yang diajar oleh guru
-        public function storeKelazMapel(Request $request)
-        {
-            $validatedData = $request->validate([
-                'guru_id' => 'required',
-                'kelaz_id' => 'required',
-                'mapel_id' => 'required',
-            ]);
+    // Tambah kelas dan mapel yang diajar oleh guru
+    public function storeKelazMapel(Request $request)
+    {
+        $validatedData = $request->validate([
+            'guru_id' => 'required',
+            'kelaz_id' => 'required',
+            'mapel_id' => 'required',
+        ]);
 
-            $data_ajar_guru = GuruKelazMapel::where('kelaz_id', $request->kelaz_id)->where('mapel_id', $request->mapel_id)->first();
-            
-            // Pengecekan bahwa jika data mapel dan kelas sudah diajar oleh guru lain maka akan error (jika sudah terdapat mapel kimia di id kelas x mipa 4 maka data itu tidak bisa diinputkan lagi ke guru lain)
-            if ($data_ajar_guru) {
-                Alert::error('Gagal', 'Data kelas dan mapel yang anda inputkan sudah ada !');
-                return back();
-            }
-    
-            DB::table('guru_kelaz_mapels')->insert([
-                'guru_id' =>  $validatedData['guru_id'] = $request->guru_id,
-                'kelaz_id' => $validatedData['kelaz_id'] = $request->kelaz_id,
-                'mapel_id' => $validatedData['mapel_id'] = $request->mapel_id
-            ]);
+        $data_ajar_guru = GuruKelazMapel::where('kelaz_id', $request->kelaz_id)->where('mapel_id', $request->mapel_id)->first();
 
-            Alert::success('Sukses', 'Data berhasil ditambahkan !');
+        // Pengecekan bahwa jika data mapel dan kelas sudah diajar oleh guru lain maka akan error (jika sudah terdapat mapel kimia di id kelas x mipa 4 maka data itu tidak bisa diinputkan lagi ke guru lain)
+        if ($data_ajar_guru) {
+            Alert::error('Gagal', 'Data kelas dan mapel yang anda inputkan sudah ada !');
             return back();
         }
+
+        DB::table('guru_kelaz_mapels')->insert([
+            'guru_id' =>  $validatedData['guru_id'] = $request->guru_id,
+            'kelaz_id' => $validatedData['kelaz_id'] = $request->kelaz_id,
+            'mapel_id' => $validatedData['mapel_id'] = $request->mapel_id
+        ]);
+
+        Alert::success('Sukses', 'Data berhasil ditambahkan !');
+        return back();
+    }
 
     // Hapus kelas dan mapel yang diajar oleh guru
     public function destroyKelazMapel($id)

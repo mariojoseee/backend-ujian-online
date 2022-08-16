@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(JurusanSeeder::class);
         $this->call(KelazSeeder::class);
         $this->call(MapelSeeder::class);
+        $this->call(GuruKelazMapelSeeder::class);
 
         Angkatan::create([
             'tahun' => '2022'

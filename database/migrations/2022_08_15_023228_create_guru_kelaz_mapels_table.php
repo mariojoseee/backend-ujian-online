@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('guru_kelaz_mapels', function (Blueprint $table) {
             $table->unsignedBigInteger('guru_id');
-            $table->foreign('guru_id')->references('id')->on('gurus')->onDelete('restrict');
+            $table->foreign('guru_id')->references('id')->on('gurus')->onDelete('cascade');
             $table->unsignedBigInteger('kelaz_id');
-            $table->foreign('kelaz_id')->references('id')->on('kelazs')->onDelete('restrict');
+            $table->foreign('kelaz_id')->references('id')->on('kelazs')->onDelete('cascade');
             $table->unsignedBigInteger('mapel_id');
-            $table->foreign('mapel_id')->references('id')->on('mapels')->onDelete('restrict');
+            $table->foreign('mapel_id')->references('id')->on('mapels')->onDelete('cascade');
 
             $table->primary(['guru_id', 'kelaz_id', 'mapel_id']);
         });

@@ -64,5 +64,15 @@ class GuruSeeder extends Seeder
             'no_telp' => '08' . mt_rand(1000000000, 9999999999),
             'admin_id' => mt_rand(1,2),
         ]);
+
+        Guru::create([
+            'nuptk' => '5102011915323034',
+            'email' => 'anggahadi@gmail.com',
+            'password' => bcrypt('12345678'),
+            'nama' => 'Prof. Dr. Ir. Angga Hadi Permana, MT.',
+            'level' => 'guru',
+            'no_telp' => '08' . mt_rand(1000000000, 9999999999),
+            'admin_id' => mt_rand(1,2),
+        ]);
     }
 }

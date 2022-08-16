@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
   // Route Guru
   Route::resource('/guru-smansabar', GuruController::class);
   Route::get('/guru-smansabars/kelaz-mapel/{id}', [GuruController::class, 'kelazMapel']);
+  Route::delete('/guru-smansabars/delete-kelaz-mapel/{id}', [GuruController::class, 'deleteKelazMapel']);
   // Route Siswa
   Route::resource('/siswa-smansabar', SiswaController::class);
   Route::get('/siswa-smansabars/pilih_kelaz', [SiswaController::class, 'pilih_kelaz']);
@@ -88,6 +89,9 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::put('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'updateJawaban']);
   Route::delete('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'destroyJawaban']);
 });
+
+
+// --- ROUTE SISWA UJIAN ONLINE SMANSABAR --- //
 
 // Route landing
 Route::get('/fitur', [LandingController::class, 'landing']);

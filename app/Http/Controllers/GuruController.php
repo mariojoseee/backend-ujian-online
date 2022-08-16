@@ -6,12 +6,13 @@ use App\Models\Guru;
 use App\Models\Kelaz;
 use App\Models\Mapel;
 use App\Mail\SendEmailGuru;
-use App\Models\GuruKelazMapel;
 use Illuminate\Http\Request;
+use App\Models\GuruKelazMapel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\ValidationException;
 
 class GuruController extends Controller
 {
@@ -183,5 +184,14 @@ class GuruController extends Controller
             'guru' => Guru::find($id),
             'data_ajar' => GuruKelazMapel::where('guru_id', $id)->get()
         ]);
+    }
+
+    // Hapus kelas dan mapel yang diajar oleh guru
+    public function deleteKelazMapel(GuruKelazMapel $id)
+    {
+        // dd($guru_id);
+        DB::table('guru_kelaz_mapel')->where('guru_id', 100 AND 'kelaz_id', 1 AND 'mapel_id', 1 )->delete();
+        Alert::success('Sukses', 'Data berhasil dihapus !');
+        return back();
     }
 }

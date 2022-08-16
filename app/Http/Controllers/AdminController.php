@@ -52,7 +52,7 @@ class AdminController extends Controller
         Admin::where('id', auth('admin')->user()->id)->update($validatedData);
 
         Alert::success('Sukses', 'Data berhasil diupdate !');
-        return redirect('/');
+        return back();
     }
 
     public function editPasswordAdmin()

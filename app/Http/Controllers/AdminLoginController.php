@@ -31,7 +31,7 @@ class AdminLoginController extends Controller
             if (!$profil_admin->nama or !$profil_admin->no_telp) {
                 return redirect('/profile-admin');
             }
-            return redirect('/');
+            return redirect('/dashboard-admin');
         } elseif (Auth::guard('guru')->attempt(['nuptk' => $credentials['nuptk'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
             // Cek kelengkapan data profil guru
@@ -39,7 +39,7 @@ class AdminLoginController extends Controller
             if (!$profil_guru->nama or !$profil_guru->no_telp) {
                 return redirect('/profile-guru');
             }
-            return redirect('/');
+            return redirect('/dashboard-guru');
         }
         return back()->with('loginError', 'Login Gagal, Periksa Inputan Data !');
     }

@@ -11,15 +11,16 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-          <a href="/" class="nav-link">
-            <i class="fas fa-tachometer-alt nav-icon"></i>
-            <p>Dashboard</p>
-          </a>
-        </li>
 
         @if (Str::length(Auth::guard('admin')->user()) > 0)
           @if (Auth::guard('admin')->user()->level = 'admin')
+            <li class="nav-item">
+              <a href="/dashboard-admin" class="nav-link">
+                <i class="fas fa-tachometer-alt nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a href="/admin-smansabar" class="nav-link">
                 <i class="fas fa-user nav-icon"></i>
@@ -74,23 +75,16 @@
         @if (Str::length(Auth::guard('guru')->user()) > 0)
           @if (Auth::guard('guru')->user()->level = 'guru')
             <li class="nav-item">
+              <a href="/dashboard-guru" class="nav-link">
+                <i class="fas fa-tachometer-alt nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="/ujian" class="nav-link">
                 <i class="fas fa-edit nav-icon"></i>
                 <p>Ujian</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="/kelaz" class="nav-link">
-                <i class="fas fa-door-closed nav-icon"></i>
-                <p>Kelas</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="/mapel" class="nav-link">
-                <i class="fas fa-book nav-icon"></i>
-                <p>Mata Pelajaran</p>
               </a>
             </li>
 

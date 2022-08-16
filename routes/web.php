@@ -38,7 +38,8 @@ Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 // FITUR UNTUK ADMIN DAN GURU (Keduanya bisa mengakses dashboard)
 Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], function () {
   // Dashboard
-  Route::get('/', [DashboardController::class, 'index']);
+  Route::get('/dashboard-admin', [DashboardController::class, 'dashboardAdmin']);
+  Route::get('/dashboard-guru', [DashboardController::class, 'dashboardGuru']);
 });
 
 

@@ -163,7 +163,7 @@ class GuruController extends Controller
         Guru::where('id', auth('guru')->user()->id)->update($validatedData);
 
         Alert::success('Sukses', 'Data berhasil diupdate !');
-        return redirect('/');
+        return back();
     }
 
     public function editPasswordGuru()

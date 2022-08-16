@@ -64,7 +64,7 @@
                 <button type="submit" class="mt-2 btn btn-primary">Ubah Password</button>
 
                 <div class="text-right mt-2 mb-2">
-                  <a href="/"> &larr; Kembali ke dashboard</a>
+                  <a href="/dashboard-guru"> &larr; Kembali ke dashboard</a>
                 </div>
               </form>
 

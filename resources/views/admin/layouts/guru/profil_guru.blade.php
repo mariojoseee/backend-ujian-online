@@ -59,7 +59,7 @@
                 <a href="/edit-password-guru" class="btn btn-danger mt-2">Ubah Password</a>
 
                 <div class="text-right mt-2 mb-2">
-                  <a href="/"> &larr; Kembali ke dashboard</a>
+                  <a href="/dashboard-guru"> &larr; Kembali ke dashboard</a>
                 </div>
               </form>
 

@@ -44,9 +44,11 @@ Route::group(['middleware' => ['auth:admin,guru', 'ceklevel:admin,guru']], funct
 
 // FITUR KHUSUS ADMIN
 Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
-  // Route Admin
+  // Route Admin dan Profile
   Route::get('/admin-smansabar', [AdminController::class, 'index']);
   Route::get('/profile-admin', [AdminController::class, 'profileAdmin']);
+  Route::get('/edit-password-admin', [AdminController::class, 'editPasswordAdmin']);
+  Route::put('/update-password-admin', [AdminController::class, 'updatePasswordAdmin']);
   // Route Guru
   Route::resource('/guru-smansabar', GuruController::class);
   Route::get('/guru-smansabars/kelaz-mapel/{id}', [GuruController::class, 'kelazMapel']);
@@ -66,7 +68,10 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
 
 // FITUR KHUSUS GURU
 Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
+  // Route Profile Guru
   Route::get('/profile-guru', [GuruController::class, 'profileGuru']);
+  Route::get('/edit-password-guru', [GuruController::class, 'editPasswordGuru']);
+  Route::put('/update-password-guru', [GuruController::class, 'updatePasswordGuru']);
   // Route Ujian
   Route::resource('/ujian', UjianController::class);
   Route::put('/ujian/status-ujian/{id}', [UjianController::class, 'statusUjian']);
@@ -84,6 +89,6 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::delete('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'destroyJawaban']);
 });
 
-//Route landing
+// Route landing
 Route::get('/fitur', [LandingController::class, 'landing']);
 Route::get('/about', [LandingController::class, 'landingabout']);

@@ -56,7 +56,7 @@
                 </div>
 
                 <button type="submit" class="mt-2 btn btn-primary mr-2">Ubah Profile</button>
-                <button type="submit" class="mt-2 btn btn-danger">Ubah Password</button>
+                <a href="/edit-password-admin" class="btn btn-danger mt-2">Ubah Password</a>
 
                 <div class="text-right mt-2">
                   <a href="/"> &larr; Kembali ke dashboard</a>

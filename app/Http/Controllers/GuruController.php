@@ -10,6 +10,7 @@ use App\Models\GuruKelazMapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class GuruController extends Controller
@@ -136,6 +137,36 @@ class GuruController extends Controller
             'smallTitle' => " - Profile Guru",
             'headTitle' => "Profile Guru",
             'angkatan' => $guru
+        ]);
+    }
+
+    public function editPasswordGuru()
+    {
+        return view('admin.layouts.guru.edit_password', [
+            'title' => "Form Edit Password Akun Guru",
+            'smallTitle' => " - Edit Password",
+            'headTitle' => "Edit Password",
+        ]);
+    }
+
+    public function updatePasswordGuru(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required'],
+            'password' => ['required', 'min:8', 'confirmed'],
+        ]);
+
+        // Pengecekan password user di database dengan di field current_password 
+        if (Hash::check($request->current_password, auth('guru')->user()->password)) {
+            // auth('guru')->user()->update(['password' => Hash::make($request->password)]);
+            Guru::where('id', auth('guru')->user()->id)->update(['password' => Hash::make($request->password)]);
+
+            Alert::success('Sukses', 'Password anda berhasil dirubah !');
+            return back();
+        }
+
+        throw ValidationException::withMessages([
+            'current_password' => 'Password yang anda masukan tidak sesuai'
         ]);
     }
 

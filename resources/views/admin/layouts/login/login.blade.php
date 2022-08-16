@@ -38,11 +38,8 @@
           @csrf
           <div class="input-group mb-3">
             <input type="number" class="form-control @error('nuptk') is-invalid @enderror" placeholder="NUPTK" name="nuptk">
-
             <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
+              <span class="input-group-text"><i class="fa fa-id-card"></i></span>
             </div>
             @error('nuptk')
               <div class="invalid-feedback">
@@ -51,12 +48,9 @@
             @enderror
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
-
+            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" data-toggle="password">
             <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
+              <span class="input-group-text"><i class="fa fa-eye"></i></span>
             </div>
             @error('password')
               <div class="invalid-feedback">
@@ -93,6 +87,8 @@
   <script src="/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="/admin-lte/dist/js/adminlte.min.js"></script>
+  {{-- FITUR SEE PASSWORD --}}
+  <script src="/bootstrap-show-password/bootstrap-show-password.js"></script>
 </body>
 
 </html>

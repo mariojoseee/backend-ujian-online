@@ -55,10 +55,10 @@
                   @enderror
                 </div>
 
-                <button type="submit" class="mt-2 btn btn-primary">Ubah Profile</button>
-                <button type="submit" class="mt-2 btn btn-danger">Ubah Password</button>
+                <button type="submit" class="mt-2 btn btn-primary mr-2">Ubah Profile</button>
+                <a href="/edit-password-guru" class="btn btn-danger mt-2">Ubah Password</a>
 
-                <div class="text-right mt-2">
+                <div class="text-right mt-2 mb-2">
                   <a href="/"> &larr; Kembali ke dashboard</a>
                 </div>
               </form>

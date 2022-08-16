@@ -24,22 +24,24 @@
             <div class="card-body">
 
               {{-- FORM --}}
-              <form method="post" action="/ujian/soal-ujian">
+              <form method="post" action="/guru-smansabars/store-kelaz-mapel">
                 @csrf
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="form-label">NUPTK</label>
-                      <input type="text" class="form-control" id="jenis" name="jenis" value="{{ $guru->nuptk }}" disabled />
+                      <input type="text" class="form-control" id="nuptk" name="nuptk" value="{{ $guru->nuptk }}" disabled />
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="form-label">Nama Guru</label>
-                      <input type="text" class="form-control" id="mapel_id" name="mapel_id" value="{{ $guru->nama }}" disabled />
+                      <input type="text" class="form-control" id="nama_guru" name="nama_guru" value="{{ $guru->nama }}" disabled />
                     </div>
                   </div>
+
+                  <input type="hidden" class="form-control" name="guru_id" value="{{ $guru->id }}"/>
 
                   {{-- INPUTAN KELAS DAN MAPEL --}}
                   <div class="col-md-6 mb-2">
@@ -113,7 +115,8 @@
                     <th style="width: 3%;">No.</th>
                     <th style="width: 30%;">Mata Pelajaran</th>
                     <th style="width: 20%;">Kelas</th>
-                    <th style="width: 10%;">Aksi</th>
+                    <th style="width: 20%;">Angkatan</th>
+                    <th style="width: 15%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -122,8 +125,9 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->mapel->nama_mapel }}</td>
                         <td>{{ $data->kelaz->nama_kelaz }}</td>
+                        <td>{{ $data->kelaz->angkatan->tahun }}</td>
                         <td class="text-right">
-                          <form action="/guru-smansabars/delete-kelaz-mapel/" method="post" class="d-inline">
+                          <form action="/guru-smansabars/delete-kelaz-mapel" method="post" class="d-inline">
                             @method('delete')
                             @csrf
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>

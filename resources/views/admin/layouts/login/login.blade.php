@@ -59,16 +59,16 @@
             @enderror
           </div>
           <div class="row">
-            <div class="col-8">
+            {{-- <div class="col-8">
               <div class="icheck-primary">
                 <input type="checkbox" id="remember">
                 <label for="remember">
                   Lihat Password
                 </label>
               </div>
-            </div>
+            </div> --}}
             <!-- /.col -->
-            <div class="col-4">
+            <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">Login</button>
             </div>
             <!-- /.col -->

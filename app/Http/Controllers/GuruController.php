@@ -182,15 +182,41 @@ class GuruController extends Controller
             'mapels' => Mapel::all(),
             'kelazs' => Kelaz::all(),
             'guru' => Guru::find($id),
-            'data_ajar' => GuruKelazMapel::where('guru_id', $id)->get()
+            'data_ajar' => GuruKelazMapel::where('guru_id', $id)->orderBy('mapel_id', 'ASC')->get()
         ]);
     }
 
+        // Tambah kelas dan mapel yang diajar oleh guru
+        public function storeKelazMapel(Request $request)
+        {
+            $validatedData = $request->validate([
+                'guru_id' => 'required',
+                'kelaz_id' => 'required',
+                'mapel_id' => 'required',
+            ]);
+
+            $data_ajar_guru = GuruKelazMapel::where('kelaz_id', $request->kelaz_id)->where('mapel_id', $request->mapel_id)->first();
+            
+            // Pengecekan bahwa jika data mapel dan kelas sudah diajar oleh guru lain maka akan error (jika sudah terdapat mapel kimia di id kelas x mipa 4 maka data itu tidak bisa diinputkan lagi ke guru lain)
+            if ($data_ajar_guru) {
+                Alert::error('Gagal', 'Data kelas dan mapel yang anda inputkan sudah ada !');
+                return back();
+            }
+    
+            DB::table('guru_kelaz_mapels')->insert([
+                'guru_id' =>  $validatedData['guru_id'] = $request->guru_id,
+                'kelaz_id' => $validatedData['kelaz_id'] = $request->kelaz_id,
+                'mapel_id' => $validatedData['mapel_id'] = $request->mapel_id
+            ]);
+
+            Alert::success('Sukses', 'Data berhasil ditambahkan !');
+            return back();
+        }
+
     // Hapus kelas dan mapel yang diajar oleh guru
-    public function deleteKelazMapel(GuruKelazMapel $id)
+    public function destroyKelazMapel(Request $request)
     {
-        // dd($guru_id);
-        DB::table('guru_kelaz_mapel')->where('guru_id', 100 AND 'kelaz_id', 1 AND 'mapel_id', 1 )->delete();
+
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return back();
     }

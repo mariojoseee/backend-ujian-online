@@ -19,7 +19,7 @@
                   <input type="number" class="form-control @error('nis') is-invalid @enderror" id="nis" name="nis" autofocus value="{{ old('nis') }}" />
                   @error('nis')
                     <div class="invalid-feedback">
-                      Kolom NIS harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -29,17 +29,17 @@
                   <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}" />
                   @error('password')
                     <div class="invalid-feedback">
-                      Kolom password harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
 
                 <div class="mb-3">
                   <label for="email" class="form-label">Alamat Email</label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}"/>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" />
                   @error('email')
                     <div class="invalid-feedback">
-                      Kolom alamat email harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>

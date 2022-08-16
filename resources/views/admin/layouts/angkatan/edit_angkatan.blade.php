@@ -17,16 +17,16 @@
                 @csrf
                 <div class="mb-3">
                   <label for="tahun" class="form-label">Tahun Angkatan</label>
-                  <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="{{ old('tahun', $angkatan->tahun) }}"/>
+                  <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="{{ old('tahun', $angkatan->tahun) }}" />
                   @error('tahun')
                     <div class="invalid-feedback">
-                      Kolom tahun angkatan harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
 
                 <button type="submit" class="mt-2 btn btn-primary">Ubah Angkatan</button>
-                
+
                 <div class="text-right mt-2">
                   <a href="/angkatan"> &larr; Kembali ke data angkatan</a>
                 </div>

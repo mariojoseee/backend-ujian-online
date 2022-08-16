@@ -16,20 +16,20 @@
                 @csrf
                 <div class="mb-3">
                   <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
-                  <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" autofocus value="{{ old('nama_jurusan') }}"/>
+                  <input type="text" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" name="nama_jurusan" autofocus value="{{ old('nama_jurusan') }}" />
                   @error('nama_jurusan')
                     <div class="invalid-feedback">
-                      Kolom nama jurusan harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
 
                 <div class="mb-3">
                   <label for="singkatan" class="form-label">Singkatan Jurusan</label>
-                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}"/>
+                  <input type="text" class="form-control @error('singkatan') is-invalid @enderror" id="singkatan" name="singkatan" value="{{ old('singkatan') }}" />
                   @error('singkatan')
                     <div class="invalid-feedback">
-                      Kolom singkatan jurusan harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -40,7 +40,7 @@
                   <a href="/jurusan"> &larr; Kembali ke data jurusan</a>
                 </div>
               </form>
-              
+
             </div>
           </div>
         </div>

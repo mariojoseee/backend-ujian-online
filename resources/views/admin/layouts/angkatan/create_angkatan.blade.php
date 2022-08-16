@@ -16,10 +16,10 @@
                 @csrf
                 <div class="mb-3">
                   <label for="tahun" class="form-label">Tahun Angkatan</label>
-                  <input type="number" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" autofocus value="{{ old('tahun') }}"/>
+                  <input type="number" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" autofocus value="{{ old('tahun') }}" />
                   @error('tahun')
                     <div class="invalid-feedback">
-                      Kolom tahun angkatan harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -30,7 +30,7 @@
                   <a href="/angkatan"> &larr; Kembali ke data angkatan</a>
                 </div>
               </form>
-              
+
             </div>
           </div>
         </div>

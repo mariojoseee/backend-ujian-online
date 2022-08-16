@@ -19,7 +19,7 @@
                   <input type="text" class="form-control @error('nama_kelaz') is-invalid @enderror" id="nama_kelaz" name="nama_kelaz" autofocus value="{{ old('nama_kelaz') }}" />
                   @error('nama_kelaz')
                     <div class="invalid-feedback">
-                      Kolom nama kelas harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -38,7 +38,7 @@
                   </select>
                   @error('jurusan_id')
                     <div class="invalid-feedback">
-                      Pilih salah satu dari jurusan diatas
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -57,7 +57,7 @@
                   </select>
                   @error('angkatan_id')
                     <div class="invalid-feedback">
-                      Pilih salah satu dari tahun angkatan diatas
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>

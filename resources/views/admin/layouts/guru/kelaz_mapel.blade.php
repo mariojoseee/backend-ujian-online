@@ -41,7 +41,7 @@
                     </div>
                   </div>
 
-                  <input type="hidden" class="form-control" name="guru_id" value="{{ $guru->id }}"/>
+                  <input type="hidden" class="form-control" name="guru_id" value="{{ $guru->id }}" />
 
                   {{-- INPUTAN KELAS DAN MAPEL --}}
                   <div class="col-md-6 mb-2">
@@ -113,7 +113,7 @@
                 <thead>
                   <tr>
                     <th style="width: 3%;">No.</th>
-                    <th style="width: 30%;">Mata Pelajaran</th>
+                    <th style="width: 33%;">Mata Pelajaran</th>
                     <th style="width: 20%;">Kelas</th>
                     <th style="width: 20%;">Angkatan</th>
                     <th style="width: 15%;">Aksi</th>
@@ -121,19 +121,19 @@
                 </thead>
                 <tbody>
                   @foreach ($data_ajar as $data)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->mapel->nama_mapel }}</td>
-                        <td>{{ $data->kelaz->nama_kelaz }}</td>
-                        <td>{{ $data->kelaz->angkatan->tahun }}</td>
-                        <td class="text-right">
-                          <form action="/guru-smansabars/delete-kelaz-mapel" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
-                          </form>
-                        </td>
-                      </tr>
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $data->mapel->nama_mapel }}</td>
+                      <td>{{ $data->kelaz->nama_kelaz }}</td>
+                      <td>{{ $data->kelaz->angkatan->tahun }}</td>
+                      <td class="text-right">
+                        <form action="/guru-smansabars/delete-kelaz-mapel/{{ $data->id }}" method="post" class="d-inline">
+                          @method('delete')
+                          @csrf
+                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
+                        </form>
+                      </td>
+                    </tr>
                   @endforeach
                 </tbody>
               </table>

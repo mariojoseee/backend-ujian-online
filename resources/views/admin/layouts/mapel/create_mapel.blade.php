@@ -16,10 +16,10 @@
                 @csrf
                 <div class="mb-3">
                   <label for="nama_mapel" class="form-label">Nama Mata Pelajaran</label>
-                  <input type="text" class="form-control @error('nama_mapel') is-invalid @enderror" id="nama_mapel" name="nama_mapel" autofocus value="{{ old('nama_mapel') }}"/>
+                  <input type="text" class="form-control @error('nama_mapel') is-invalid @enderror" id="nama_mapel" name="nama_mapel" autofocus value="{{ old('nama_mapel') }}" />
                   @error('nama_mapel')
                     <div class="invalid-feedback">
-                      Kolom nama mata pelajaran harus diisi
+                      {{ $message }}
                     </div>
                   @enderror
                 </div>
@@ -30,7 +30,7 @@
                   <a href="/mapel"> &larr; Kembali ke data mapel</a>
                 </div>
               </form>
-              
+
             </div>
           </div>
         </div>

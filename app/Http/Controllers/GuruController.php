@@ -214,9 +214,9 @@ class GuruController extends Controller
         }
 
     // Hapus kelas dan mapel yang diajar oleh guru
-    public function destroyKelazMapel(Request $request)
+    public function destroyKelazMapel($id)
     {
-
+        GuruKelazMapel::destroy($id);
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return back();
     }

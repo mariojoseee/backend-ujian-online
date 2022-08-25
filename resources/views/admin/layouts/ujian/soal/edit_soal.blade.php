@@ -11,7 +11,7 @@
           {{-- BAGIAN FORM EDIT SOAL UJIAN --}}
           <div class="card card-default">
             <div class="card-header">
-              <h3 class="card-title">Form Edit Soal Ujian</h3>
+              <h3 class="card-title">Form Ubah Soal Ujian</h3>
             </div>
             <div class="card-body">
 
@@ -34,7 +34,7 @@
                   <input type="hidden" class="form-control" name="ujian_id" value="{{ $soal->ujian_id }}" />
 
                 </div>
-                <button type="submit" class="mt-4 btn btn-primary">Update Soal</button>
+                <button type="submit" class="mt-4 btn btn-primary">Ubah Soal</button>
               </form>
               <div class="text-right mt-4 mb-2">
                 <a href="/ujian/soal-ujian/{{ $soal->ujian_id }}"> &larr; Kembali ke data soal ujian</a>

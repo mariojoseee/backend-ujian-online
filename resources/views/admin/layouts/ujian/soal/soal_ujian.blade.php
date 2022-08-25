@@ -105,7 +105,7 @@
                       {{-- <td>{{ $jawaban }}</td> --}}
                       <td class="text-right">
                         <a href="/ujian/jawaban-ujian/{{ $soal->id }}" class="btn btn-success btn-sm">Tambah Jawaban</a>
-                        <a href="/ujian/soal-ujian/edit/{{ $soal->id }}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/ujian/soal-ujian/edit/{{ $soal->id }}" class="btn btn-primary btn-sm">Ubah</a>
                         <form action="/ujian/soal-ujian/{{ $soal->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

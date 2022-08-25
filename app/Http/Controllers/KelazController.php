@@ -87,7 +87,7 @@ class KelazController extends Controller
     public function edit(Kelaz $kelaz)
     {
         return view('admin.layouts.kelaz.edit_kelaz', [
-            'title' => "Form Edit Kelas",
+            'title' => "Form Ubah Kelas",
             'smallTitle' => " - Kelas",
             'headTitle' => "Update Kelas",
             'jurusans' => Jurusan::all(),

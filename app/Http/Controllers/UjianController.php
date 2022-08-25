@@ -85,7 +85,7 @@ class UjianController extends Controller
     public function edit(Ujian $ujian)
     {
         return view('admin.layouts.ujian.edit_ujian', [
-            'title' => "Form Edit Jenis Ujian",
+            'title' => "Form Ubah Jenis Ujian",
             'smallTitle' => " - Jenis Ujian",
             'headTitle' => "Update Jenis Ujian",
             'ujian' => $ujian,

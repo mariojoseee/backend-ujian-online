@@ -39,7 +39,7 @@ class SoalJawabanController extends Controller
     public function editSoal($id)
     {
         return view('admin.layouts.ujian.soal.edit_soal', [
-            'title' => "Edit Soal Ujian",
+            'title' => "Ubah Soal Ujian",
             'smallTitle' => " - Soal Ujian",
             'headTitle' => "Update Soal Ujian",
             'soal' => Soal::find($id),
@@ -106,7 +106,7 @@ class SoalJawabanController extends Controller
     public function editJawaban($id)
     {
         return view('admin.layouts.ujian.jawaban.edit_jawaban', [
-            'title' => "Edit Jawaban Ujian",
+            'title' => "Ubah Jawaban Ujian",
             'smallTitle' => " - Jawaban Ujian",
             'headTitle' => "Update Jawaban Ujian",
             'jawaban' => Jawaban::find($id),

@@ -117,7 +117,7 @@
                       <td>{{ $jawaban->keterangan }}</td>
                       <td>{{ $jawaban->skor }}</td>
                       <td class="text-right">
-                        <a href="/ujian/jawaban-ujian/edit/{{ $jawaban->id }}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/ujian/jawaban-ujian/edit/{{ $jawaban->id }}" class="btn btn-primary btn-sm">Ubah</a>
                         <form action="/ujian/jawaban-ujian/{{ $jawaban->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

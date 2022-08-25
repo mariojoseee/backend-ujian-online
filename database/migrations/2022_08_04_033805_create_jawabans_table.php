@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('jawabans', function (Blueprint $table) {
             $table->id();
             $table->text('jawaban');
-            $table->string('keterangan');
+            $table->string('keterangan', 5);
             $table->tinyInteger('skor');
+            // $table->tinyInteger('skor')->length(1);
             $table->foreignId('soal_id');
             $table->timestamps();
         });

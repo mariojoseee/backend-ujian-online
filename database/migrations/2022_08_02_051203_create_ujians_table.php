@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('ujians', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis');
+            $table->string('jenis', 50);
             $table->text('deskripsi')->nullable();
             $table->string('kode_ujian', 10);
-            $table->string('semester');
-            $table->string('status');
+            $table->string('semester', 6);
+            $table->string('status', 8);
             $table->time('waktu');
             $table->foreignId('mapel_id');
             $table->foreignId('guru_id');

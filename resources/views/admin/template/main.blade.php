@@ -3,6 +3,7 @@
 
 <head>
   @include('admin.components.head')
+  <link href="/admin-lte/dist/img/smansabanjar.png" rel="shortcut icon">
   {{-- Menghilangkan tombol upload file pada trix-editor --}}
   <style>
     trix-toolbar [data-trix-button-group="file-tools"] {

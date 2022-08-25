@@ -115,9 +115,9 @@ class KelazController extends Controller
         //     $rules['nama_kelaz'] = 'required|max:10';
         // }
 
-        $kelaz = Kelaz::where('nama_kelaz', $request->nama_kelaz)->where('angkatan_id', $request->angkatan_id)->first();
+        $cek_kelaz = Kelaz::where('nama_kelaz', $request->nama_kelaz)->where('angkatan_id', $request->angkatan_id)->where('jurusan_id', $request->jurusan_id)->first();
 
-        if($kelaz){
+        if($cek_kelaz){
             Alert::error('Gagal', 'Data yang anda inputkan sudah ada !');
             return redirect('/kelaz/'.$kelaz->id.'/edit');
         }

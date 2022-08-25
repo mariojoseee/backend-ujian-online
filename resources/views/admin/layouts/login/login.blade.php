@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/admin-lte/dist/css/adminlte.min.css">
+  <link href="/admin-lte/dist/img/smansabanjar.png" rel="shortcut icon">
 </head>
 
 <body class="hold-transition login-page">

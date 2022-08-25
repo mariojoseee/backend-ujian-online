@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('angkatans', function (Blueprint $table) {
             $table->id();
-            $table->year('tahun');
+            $table->year('tahun', 4);
             $table->timestamps();
         });
     }

@@ -48,18 +48,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Kategori Kelas</label>
-                  <select class="custom-select @error('kelas') is-invalid @enderror" name="kelas">
-                    <option value="" selected disabled>Pilih Kategori Kelas</option>
-                    <option value="X" {{ old('kelas') == 'X' ? 'selected' : '' }}>Kelas X</option>
-                    <option value="XI" {{ old('kelas') == 'XI' ? 'selected' : '' }}>Kelas XI</option>
-                    <option value="XII" {{ old('kelas') == 'XII' ? 'selected' : '' }}>Kelas XII</option>
-                  </select>
-                  @error('kelas')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
+                  <label class="form-label">Kode Ujian</label>
+                  <input type="text" class="form-control" id="kode_ujian" name="kode_ujian" value="KD{{ mt_rand(11111111, 99999999) }}" readonly />
+                  {{-- <p style="font-size: 0.875em;" class="mt-2 text-danger">* Refresh halaman ini jika ingin mengubah kode ujian</p> --}}
                 </div>
 
                 <div class="mb-3">
@@ -70,6 +61,16 @@
                     <option value="Genap" {{ old('semester') == 'Genap' ? 'selected' : '' }}>Semester Genap</option>
                   </select>
                   @error('semester')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+
+                <div class="mb-3">
+                  <label for="waktu" class="form-label @error('waktu') is-invalid @enderror">Waktu Ujian</label>
+                  <input type="time" class="form-control" id="waktu" name="waktu" />
+                  @error('waktu')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

@@ -16,11 +16,12 @@ class UjianController extends Controller
      */
     public function index()
     {
+        // dd(Ujian::where('guru_id', auth('guru')->user()->id)->get());
         return view('admin.layouts.ujian.index_ujian', [
             'title' => "Jenis Ujian",
             'smallTitle' => " - Jenis Ujian",
             'headTitle' => "Jenis Ujian",
-            'ujians' => Ujian::all()
+            'ujians' => Ujian::where('guru_id', auth('guru')->user()->id)->get()
         ]);
     }
 
@@ -50,9 +51,10 @@ class UjianController extends Controller
         $validatedData = $request->validate([
             'jenis' => 'required|max:50',
             'deskripsi' => 'max:255',
-            'kelas' => 'required|max:3',
+            'kode_ujian' => 'required|unique:ujians|max:10',
             'semester' => 'required|max:6',
             'status' => 'required',
+            'waktu' => 'required',
             'mapel_id' => 'required',
             'guru_id' => 'required',
         ]);
@@ -100,14 +102,20 @@ class UjianController extends Controller
      */
     public function update(Request $request, Ujian $ujian)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'jenis' => 'required|max:50',
             'deskripsi' => 'max:255',
-            'kelas' => 'required|max:3',
             'semester' => 'required|max:6',
+            'waktu' => 'required',
             'mapel_id' => 'required',
             'guru_id' => 'required',
-        ]);
+        ];
+
+        if ($request->kode_ujian != $ujian->kode_ujian) {
+            $rules['kode_ujian'] = 'required|unique:ujians|max:10';
+        }
+
+        $validatedData = $request->validate($rules);
 
         // QUERY
         Ujian::where('id', $ujian->id)->update($validatedData);

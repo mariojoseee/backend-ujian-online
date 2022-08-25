@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function profilAdmin()
     {
         return view('admin.layouts.admin.profil_admin', [
-            'title' => "Form Edit Profil Admin",
+            'title' => "Form Ubah Profil Admin",
             'smallTitle' => " - Profil Admin",
             'headTitle' => "Profil Admin",
         ]);

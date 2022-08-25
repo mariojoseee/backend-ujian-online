@@ -9,6 +9,7 @@ use App\Models\Siswa;
 use App\Models\Ujian;
 use App\Models\Jawaban;
 use App\Models\Angkatan;
+use App\Models\Nilai;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KelazSeeder::class);
         $this->call(MapelSeeder::class);
         $this->call(GuruKelazMapelSeeder::class);
+        $this->call(NilaiSeeder::class);
 
         Angkatan::create([
             'tahun' => '2022'
@@ -37,9 +39,10 @@ class DatabaseSeeder extends Seeder
         Ujian::create([
             'jenis' => 'Ujian Tengah Semester (UTS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
-            'kelas' => 'X',
+            'kode_ujian' => 'KD'.mt_rand(11111111, 99999999),
             'semester' => 'Ganjil',
             'status' => 'Nonaktif',
+            'waktu' => 5,
             'mapel_id' => 4,
             'guru_id' => 4,
         ]);
@@ -72,24 +75,28 @@ class DatabaseSeeder extends Seeder
         Jawaban::create([
             'jawaban' => 'Is',
             'keterangan' => 'Salah',
+            'skor' => 0,
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Are',
             'keterangan' => 'Benar',
+            'skor' => 5,
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Does',
             'keterangan' => 'Salah',
+            'skor' => 0,
             'soal_id' => 1,
         ]);
 
         Jawaban::create([
             'jawaban' => 'Do',
             'keterangan' => 'Salah',
+            'skor' => 0,
             'soal_id' => 1,
         ]);
     }

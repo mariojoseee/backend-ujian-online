@@ -92,7 +92,8 @@ class SoalJawabanController extends Controller
         // dd($request);
         $validatedData = $request->validate([
             'jawaban' => 'required',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'skor' => 'required|max:2'
         ]);
 
         $validatedData['soal_id'] = $request->soal_id;
@@ -117,6 +118,7 @@ class SoalJawabanController extends Controller
         $validatedData = $request->validate([
             'jawaban' => 'required',
             'keterangan' => 'required',
+            'skor' => 'required|max:2',
             'soal_id' => 'required',
         ]);
 

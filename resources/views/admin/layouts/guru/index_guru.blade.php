@@ -17,7 +17,7 @@
                 <thead>
                   <tr>
                     <th style="width: 1%;">No.</th>
-                    <th style="width: 17%;">Nama Admin</th>
+                    <th style="width: 17%;">Nama Guru</th>
                     <th style="width: 4%;">NUPTK</th>
                     <th style="width: 4%;">Email</th>
                     <th style="width: 7%;">Nomor HP</th>

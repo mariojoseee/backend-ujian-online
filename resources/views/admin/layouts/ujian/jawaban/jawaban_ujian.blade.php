@@ -11,7 +11,7 @@
           {{-- BAGIAN FORM TAMBAH JAWABAN UJIAN --}}
           <div class="card card-default">
             <div class="card-header">
-              <h3 class="card-title">Form Tambah Jawaban</h3>
+              <h3 class="card-title">Form Tambah Jawaban Ujian</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
@@ -43,18 +43,31 @@
                     <trix-editor input="jawaban"></trix-editor>
                   </div>
 
-                  <div class="mt-3 mb-4 col-md-12">
-                    <label class="form-label">Keterangan Jawaban</label>
-                    <select class="custom-select @error('keterangan') is-invalid @enderror" name="keterangan">
-                      <option value="" selected disabled>Pilih Keterangan Jawaban</option>
-                      <option value="Benar" {{ old('keterangan') == 'Benar' ? 'selected' : '' }}>Benar</option>
-                      <option value="Salah" {{ old('keterangan') == 'Salah' ? 'selected' : '' }}>Salah</option>
-                    </select>
-                    @error('keterangan')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
+                  <div class="col-md-6 mt-3 mb-3">
+                    <div class="form-group">
+                      <label class="form-label">Keterangan Jawaban</label>
+                      <select class="custom-select @error('keterangan') is-invalid @enderror" name="keterangan">
+                        <option value="" selected disabled>Pilih Keterangan Jawaban</option>
+                        <option value="Benar" {{ old('keterangan') == 'Benar' ? 'selected' : '' }}>Benar</option>
+                        <option value="Salah" {{ old('keterangan') == 'Salah' ? 'selected' : '' }}>Salah</option>
+                      </select>
+                      @error('keterangan')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-3 mb-3">
+                    <div class="form-group">
+                      <label for="skor" class="form-label">Skor Jawaban</label>
+                      <input type="number" class="form-control @error('skor') is-invalid @enderror" id="skor" name="skor" value="{{ old('skor') }}" />
+                      @error('skor')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
+                    </div>
                   </div>
 
                   <input type="hidden" class="form-control" name="soal_id" value="{{ $soal->id }}" />
@@ -92,6 +105,7 @@
                     <th style="width: 1%;">No.</th>
                     <th style="width: 40%;">Jawaban</th>
                     <th style="width: 9%;">Keterangan</th>
+                    <th style="width: 9%;">Skor</th>
                     <th style="width: 12%;">Aksi</th>
                   </tr>
                 </thead>
@@ -101,6 +115,7 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{!! $jawaban->jawaban !!}</td>
                       <td>{{ $jawaban->keterangan }}</td>
+                      <td>{{ $jawaban->skor }}</td>
                       <td class="text-right">
                         <a href="/ujian/jawaban-ujian/edit/{{ $jawaban->id }}" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/ujian/jawaban-ujian/{{ $jawaban->id }}" method="post" class="d-inline">

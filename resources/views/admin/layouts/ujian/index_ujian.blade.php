@@ -17,10 +17,11 @@
                 <thead>
                   <tr>
                     <th style="width: 0.5%;">No.</th>
-                    <th style="width: 8%;">Jenis Ujian</th>
-                    <th style="width: 1%;">Kelas</th>
+                    <th style="width: 4%;">Jenis Ujian</th>
+                    <th style="width: 1%;">Kode Ujian</th>
                     <th style="width: 1%;">Semester</th>
-                    <th style="width: 8%;">Mapel</th>
+                    <th style="width: 5%;">Mapel</th>
+                    <th style="width: 2%;">Waktu</th>
                     <th style="width: 9%;">Aksi</th>
                   </tr>
                 </thead>
@@ -29,9 +30,10 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $ujian->jenis }}</td>
-                      <td>{{ $ujian->kelas }}</td>
+                      <td>{{ $ujian->kode_ujian }}</td>
                       <td>{{ $ujian->semester }}</td>
                       <td>{{ $ujian->mapel->nama_mapel }}</td>
+                      <td>{{ $ujian->waktu }}</td>
                       <td class="text-right">
                         @if ($ujian->status == "Aktif")
                           {{-- SET UJIAN NONAKTIF --}}
@@ -49,7 +51,7 @@
                           </form>
                         @endif
                         <a href="/ujian/soal-ujian/{{ $ujian->id }}" class="btn btn-info btn-sm">Soal</a>
-                        <a href="/ujian/{{ $ujian->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/ujian/{{ $ujian->id }}/edit" class="btn btn-primary btn-sm">Ubah</a>
                         <form action="/ujian/{{ $ujian->id }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf

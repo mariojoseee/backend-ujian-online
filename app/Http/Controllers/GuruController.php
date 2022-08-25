@@ -134,7 +134,7 @@ class GuruController extends Controller
     public function profilGuru(Guru $guru)
     {
         return view('admin.layouts.guru.profil_guru', [
-            'title' => "Form Edit Profil Guru",
+            'title' => "Form Ubah Profil Guru",
             'smallTitle' => " - Profil Guru",
             'headTitle' => "Profil Guru",
             'angkatan' => $guru

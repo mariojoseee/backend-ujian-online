@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('jawaban');
             $table->string('keterangan');
+            $table->tinyInteger('skor');
             $table->foreignId('soal_id');
             $table->timestamps();
         });

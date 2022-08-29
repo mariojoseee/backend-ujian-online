@@ -10,6 +10,8 @@ use App\Models\Ujian;
 use App\Models\Jawaban;
 use App\Models\Angkatan;
 use App\Models\Nilai;
+use Database\Factories\Siswa2Factory;
+use Database\Factories\Siswa3Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -22,29 +24,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Siswa::factory(20)->create();
+        Siswa::factory(18)->create();
 
         $this->call(AdminSeeder::class);
         $this->call(GuruSeeder::class);
         $this->call(JurusanSeeder::class);
         $this->call(KelazSeeder::class);
         $this->call(MapelSeeder::class);
+        $this->call(UjianSeeder::class);
         $this->call(GuruKelazMapelSeeder::class);
         $this->call(NilaiSeeder::class);
 
         Angkatan::create([
             'tahun' => '2022'
-        ]);
-
-        Ujian::create([
-            'jenis' => 'Ujian Tengah Semester (UTS)',
-            'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
-            'kode_ujian' => 'KD'.mt_rand(11111111, 99999999),
-            'semester' => 'Ganjil',
-            'status' => 'Nonaktif',
-            'waktu' => 5,
-            'mapel_id' => 4,
-            'guru_id' => 4,
         ]);
         
         Soal::create([

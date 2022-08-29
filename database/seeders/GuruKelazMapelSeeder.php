@@ -16,21 +16,21 @@ class GuruKelazMapelSeeder extends Seeder
      */
     public function run()
     {
-        // Guru ID 1
+        // Guru Guswika Mengajar Fisika di X MIPA 1-3
         DB::table('guru_kelaz_mapels')->insert([
-            ['guru_id' => 1, 'kelaz_id' => 1, 'mapel_id' => 7],
-            ['guru_id' => 1, 'kelaz_id' => 2, 'mapel_id' => 7],
-            ['guru_id' => 1, 'kelaz_id' => 3, 'mapel_id' => 7],
+            ['guru_id' => 1, 'kelaz_id' => 1, 'mapel_id' => 8],
+            ['guru_id' => 1, 'kelaz_id' => 2, 'mapel_id' => 8],
+            ['guru_id' => 1, 'kelaz_id' => 3, 'mapel_id' => 8],
         ]);
 
-        // Guru ID 3
+        // Guru Royan Mengajar PENJAS di X MIPA 1-3
         DB::table('guru_kelaz_mapels')->insert([
-            ['guru_id' => 3, 'kelaz_id' => 4, 'mapel_id' => 5],
-            ['guru_id' => 3, 'kelaz_id' => 5, 'mapel_id' => 5],
-            ['guru_id' => 3, 'kelaz_id' => 6, 'mapel_id' => 5],
+            ['guru_id' => 3, 'kelaz_id' => 1, 'mapel_id' => 5],
+            ['guru_id' => 3, 'kelaz_id' => 2, 'mapel_id' => 5],
+            ['guru_id' => 3, 'kelaz_id' => 3, 'mapel_id' => 5],
         ]);
 
-        // Guru ID 4
+        // Guru Yunia Mengajar Bahasa Inggris di X MIPA 1-3
         DB::table('guru_kelaz_mapels')->insert([
             ['guru_id' => 4, 'kelaz_id' => 1, 'mapel_id' => 4],
             ['guru_id' => 4, 'kelaz_id' => 2, 'mapel_id' => 4],

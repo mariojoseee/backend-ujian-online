@@ -13,6 +13,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SoalJawabanController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Auth\Events\Login;
 
 
@@ -92,6 +93,12 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::get('/ujian/jawaban-ujian/edit/{id}', [SoalJawabanController::class, 'editJawaban']);
   Route::put('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'updateJawaban']);
   Route::delete('/ujian/jawaban-ujian/{id}', [SoalJawabanController::class, 'destroyJawaban']);
+  // Route Laporan Actor Guru
+  Route::get('/laporan', [LaporanController::class, 'indexLaporanDataAjar']);
+  // Tampil Laporan Nilai Ujian Actor Guru
+  Route::get('/laporan-nilai-guru/kelaz/{id}', [LaporanController::class, 'indexLaporanGuru']);
+  // Print Laporan Nilai Actor Ujian Guru
+  Route::get('/laporan-nilai-guru-print/{id}', [LaporanController::class, 'indexLaporanPrint']);
 });
 
 

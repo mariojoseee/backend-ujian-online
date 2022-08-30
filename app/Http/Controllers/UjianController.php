@@ -152,4 +152,9 @@ class UjianController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/ujian');
     }
+
+    public function tampilUjianSiswa()
+    {
+        return view('users.siswa.ujian-siswa');
+    }
 }

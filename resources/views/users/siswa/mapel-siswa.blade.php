@@ -6,17 +6,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<title>Online Exam</title>
 	<!-- CSS Files -->
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/template.css">
+	<link rel="stylesheet" type="text/css" href="users/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="users/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="users/css/template.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="assets/css/mdb.min.css" />
+    <link rel="stylesheet" href="users/css/mdb.min.css" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="users/css/style.css" />
 </head>
 <body>
     <header class="header-area header-sticky">
@@ -31,10 +31,10 @@
 						<!-- End Logo -->
 						<!-- Menu Start -->
 						<ul class="nav">
-							<li class="scroll-to-section"><a href="#" class="menu-item">Profil</a></li>
-							<li class="scroll-to-section"><a href="#" class="menu-item">Kelas</a></li>
-							<li class="scroll-to-section"><a href="#" class="menu-item">Nilai</a></li>
-							<li class="scroll-to-section"><a href="#" class="menu-item">Logout</a></li>
+							<li class="scroll-to-section"><a href="/halaman-siswa">Profil</a></li>
+							<li class="scroll-to-section"><a href="/kelas-siswa">Kelas</a></li>
+							<li class="scroll-to-section"><a href="/nilai-siswa">Nilai</a></li>
+							<li class="scroll-to-section"><a href="/logoutsiswa">Logout</a></li>
 						</ul>
 						<a class="menu-trigger">
 							<span>menu</span>
@@ -49,41 +49,37 @@
     <section class="content">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card-mapel">
                     <div class="card-body">
                         <div class="d-flex flex-row">
-                            <p class="text-lg ml-3">Profil Siswa</p>
+                            <p class="text-lg ml-3">Mata Pelajaran</p>
+							<p class="text-lg ml-auto">{{auth('siswa')->user()->nama}}</p>
                         </div>
                     </div>
-					<div class="form">
-						<div class="col-5 ml-2 mt-2">
-							<label>NIS</label>
-							<input type="number" class="form-control" placeholder="nis">
-						</div>
+					
+                    <div class="header-mapel">
+                        <h2>XII MIPA 1</h2>
+                        <h3>Bahasa Indonesia</h3>
+                    </div>
 
-						<div class="col-5 ml-2 mt-3">
-							<label>Nama Siswa</label>
-							<input type="nama" class="form-control" placeholder="nama siswa">
-						</div>
+                    <div id="mapel">
+                        <div class="header-info">
+                            <h2>Info!!</h2>
+                            <h3>Selamat mengerjakan ujian</h3>
+                        </div>
 
-						<div class="col-5 ml-2 mt-3">
-							<label>Email</label>
-							<input type="email" class="form-control" placeholder="email">
-						</div>
-
-						<div class="col-5 ml-2 mt-3">
-							<label>Password</label>
-							<input type="password" class="form-control" placeholder="password">
-						</div>
-					</div>
-
-					<div class="footer-button">
-						<button type="button" class="btn btn-success">Simpan</button>
-					</div>
+                        <div class="header-ujian">
+                            <a href="/ujian-siswa"><h3><i class="fas fa-clipboard-list"></i> Ujian Tengah Semester</h3></a>
+                        </div>
+						<div class="header-ujian">
+                            <a href="/ujian-siswa"><h3><i class="fas fa-clipboard-list"></i> Ujian Akhir Semester</h3></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     
 </body>
 </html>

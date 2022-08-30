@@ -116,4 +116,9 @@ class MapelController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/mapel');
     }
+
+    public function tampilMapelSiswa()
+    {
+        return view('users.siswa.mapel-siswa');
+    }
 }

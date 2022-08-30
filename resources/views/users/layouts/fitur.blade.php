@@ -24,13 +24,13 @@
             <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner rounded-lg">
                     <div class="carousel-item active" data-interval="10000">
-                    <img src="assets/images/w1.png" class="w-90" alt="...">
+                    <img src="users/images/w1.png" class="w-90" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="2000">
-                    <img src="assets/images/w2.png" class="w-90" alt="...">
+                    <img src="users/images/w2.png" class="w-90" alt="...">
                     </div>
                     <div class="carousel-item">
-                    <img src="assets/images/w3.png" class="w-90" alt="...">
+                    <img src="users/images/w3.png" class="w-90" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carousel" data-slide="prev">
@@ -53,7 +53,7 @@
                     <div class="section-border-bottom">
                         <div class="d-flex align-items-center center-vertical-sm center-sm">
                             <div class="fitur mr-0 mr-md-4 mb-3 mb-md-0">
-                                <img src="assets/images/a1.png" alt="">
+                                <img src="users/images/a1.png" alt="">
                             </div>
                             <div>
                                 <div class="font-weight-bold text-lg">Ujian Tengah Semester & Ujian Akhir Semester</div>
@@ -65,7 +65,7 @@
                     <div class="section-border-bottom">
                         <div class="d-flex align-items-center center-vertical-sm center-sm">
                             <div class="fitur mr-0 mr-md-4 mb-3 mb-md-0">
-                                <img src="assets/images/a.png" alt="">
+                                <img src="users/images/a.png" alt="">
                             </div>
                             <div>
                                 <div class="font-weight-bold text-lg bold">Tipe Soal</div>
@@ -77,7 +77,7 @@
                     <div class="section-border-bottom">
                         <div class="d-flex align-items-center center-vertical-sm center-sm">
                             <div class="fitur mr-0 mr-md-4 mb-3 mb-md-0">
-                                <img src="assets/images/a3.png" alt="">
+                                <img src="users/images/a3.png" alt="">
                             </div>
                             <div>
                                 <div class="font-weight-bold text-lg bold">Konfirmasi Ujian</div>

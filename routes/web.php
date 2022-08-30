@@ -104,6 +104,33 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
 
 // --- ROUTE SISWA UJIAN ONLINE SMANSABAR --- //
 
-// Route landing
+// Route Landing
+Route::get('/ujian-online-smansabar', function () {
+  return view('users.main');
+});
 Route::get('/fitur', [LandingController::class, 'landing']);
 Route::get('/about', [LandingController::class, 'landingabout']);
+
+// Route Login Siswa
+Route::get('/login-siswa', [SiswaLoginController::class, 'index'])->name('loginsiswa');
+Route::post('/postloginsiswa', [SiswaLoginController::class, 'postloginsiswa'])->name('postloginsiswa');
+Route::get('/logoutsiswa', [SiswaLoginController::class, 'logoutsiswa'])->name('logoutsiswa');
+
+// Route Halaman Siswa
+Route::group(['middleware' => ['auth:siswa', 'ceklevel:siswa']], function () {
+  Route::get('/halaman-siswa', function () {
+    return view('users.siswa.index-siswa');
+  });
+  Route::get('/editprofile-siswa', [SiswaController::class, 'profilSiswa']);
+  Route::put('/updateProfile', [SiswaController::class, 'updateProfilSiswa']);
+  
+  Route::get('/editpassword', [SiswaLoginController::class, 'editPasswordSiswa']);
+  Route::put('/updatepassword', [SiswaLoginController::class, 'updatePasswordSiswa']);
+  Route::get('/kelas-siswa', [KelazController::class, 'tampilKelazSiswa']);
+  Route::get('/mapel-siswa', [MapelController::class, 'tampilMapelSiswa']);
+  Route::get('/ujian-siswa', [UjianController::class, 'tampilUjianSiswa']);
+  Route::get('/soal-siswa', [SoalJawabanController::class, 'tampilSoalSiswa']);
+  Route::get('/nilai-siswa', [NilaiController::class, 'tampilNilaiSiswa']);
+});
+
+Route::get('/getsoal', [SoalJawabanController::class,'apiSoal']);

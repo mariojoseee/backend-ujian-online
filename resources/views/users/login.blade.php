@@ -9,19 +9,25 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-md-8">
-              <form class="bg-white rounded shadow-5-strong p-5" action="/login" method="POST">
+
+            @if (session()->has('loginError'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+              </div>
+            @endif
+            
+              <form class="bg-white rounded shadow-5-strong p-5" action="/postloginsiswa" method="POST">
                 @csrf 
                 <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="number" id="form1Example1" class="form-control"  name="nis" id="nis" required
-                            value="{{ old('nis') }}"/>
-                  <label class="form-label" for="form1Example1">NIS</label>
+                <div class="input-group mb-3">
+                  <input type="number" id="form1Example1" class="form-control" name="nis" placeholder="NIS" id="nis" required
+                                  value="{{ old('nis') }}"/>
                 </div>
 
                 <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form1Example2" class="form-control" name="password" id="password" required/>
-                  <label class="form-label" for="form1Example2">Password</label>
+                <div class="input-group mb-3">
+                  <input type="password" id="form1Example1" class="form-control" name="password" placeholder="password" id="password" required
+                                    value="{{ old('nis') }}"/>
                 </div>
 
                 <!-- 2 column grid layout for inline styling -->

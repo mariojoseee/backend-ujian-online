@@ -143,4 +143,9 @@ class KelazController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/kelaz');
     }
+
+    public function tampilKelazSiswa()
+    {
+        return view('users.siswa.kelas-siswa');
+    }
 }

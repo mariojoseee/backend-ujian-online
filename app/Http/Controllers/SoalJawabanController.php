@@ -141,4 +141,18 @@ class SoalJawabanController extends Controller
         Alert::success('Sukses', 'Data berhasil dihapus !');
         return redirect('/ujian/jawaban-ujian/' . $soal_id);
     }
+
+    public function tampilSoalSiswa()
+    {
+        return view('users.siswa.soal-siswa');
+    }
+
+    public function apiSoal()
+    {
+        return response()->json([
+            'success' => true,
+            'message' => "",
+            'soal' => Soal::with('jawaban')->get()
+        ]);
+    }
 }

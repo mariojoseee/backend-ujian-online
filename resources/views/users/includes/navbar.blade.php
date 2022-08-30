@@ -10,7 +10,7 @@
 						<!-- End Logo -->
 						<!-- Menu Start -->
 						<ul class="nav">
-							<li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
+							<li class="scroll-to-section"><a href="/ujian-online-smansabar">Home</a></li>
 							<li class="nav-item"><a href="/fitur">Fitur</a></li>
 							<li class="nav-item"><a href="/about">About</a></li>
 							<li class="scroll-to-section"><a href="/login-siswa">Login</a></li>

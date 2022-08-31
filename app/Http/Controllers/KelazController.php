@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Angkatan;
+use App\Models\GuruKelazMapel;
 use App\Models\Kelaz;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
@@ -146,6 +147,8 @@ class KelazController extends Controller
 
     public function tampilKelazSiswa()
     {
-        return view('users.siswa.kelas-siswa');
+        return view('users.siswa.kelas-siswa', [
+            'kelazs' => GuruKelazMapel::where('kelaz_id', auth()->user()->kelaz_id)->get()
+        ]);
     }
 }

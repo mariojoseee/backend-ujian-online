@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth:siswa']], function () {
   Route::get('/editpassword', [SiswaLoginController::class, 'editPasswordSiswa']);
   Route::put('/updatepassword', [SiswaLoginController::class, 'updatePasswordSiswa']);
   Route::get('/kelas-siswa', [KelazController::class, 'tampilKelazSiswa']);
-  Route::get('/mapel-siswa', [MapelController::class, 'tampilMapelSiswa']);
+  Route::get('/mapel-siswa/{id}', [MapelController::class, 'tampilMapelSiswa']);
   Route::get('/ujian-siswa', [UjianController::class, 'tampilUjianSiswa']);
   Route::get('/soal-siswa', [SoalJawabanController::class, 'tampilSoalSiswa']);
   Route::get('/nilai-siswa', [NilaiController::class, 'tampilNilaiSiswa']);

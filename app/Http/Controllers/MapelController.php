@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mapel;
+use App\Models\Ujian;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -117,8 +118,10 @@ class MapelController extends Controller
         return redirect('/mapel');
     }
 
-    public function tampilMapelSiswa()
+    public function tampilMapelSiswa($id)
     {
-        return view('users.siswa.mapel-siswa');
+        return view('users.siswa.mapel-siswa', [
+            'ujians' => Ujian::where('mapel_id', $id)->get()
+        ]);
     }
 }

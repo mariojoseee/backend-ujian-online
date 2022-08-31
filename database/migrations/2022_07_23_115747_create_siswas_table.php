@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nis', 5)->unique();
             $table->string('email', 100)->unique()->nullable();
             $table->string('password', 100);
-            $table->string('level');
             $table->string('nama', 80)->nullable();
             $table->string('no_telp', 13)->nullable();
             $table->foreignId('kelaz_id');

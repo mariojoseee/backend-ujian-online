@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminLoginController;
-use App\Http\Controllers\AngkatanController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KelazController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\SoalJawabanController;
 use App\Http\Controllers\UjianController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LaporanController;
-use Illuminate\Auth\Events\Login;
+use App\Http\Controllers\AngkatanController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\SiswaLoginController;
+use App\Http\Controllers\SoalJawabanController;
 
 
 /*
@@ -117,7 +118,7 @@ Route::post('/postloginsiswa', [SiswaLoginController::class, 'postloginsiswa'])-
 Route::get('/logoutsiswa', [SiswaLoginController::class, 'logoutsiswa'])->name('logoutsiswa');
 
 // Route Halaman Siswa
-Route::group(['middleware' => ['auth:siswa', 'ceklevel:siswa']], function () {
+Route::group(['middleware' => ['auth:siswa']], function () {
   Route::get('/halaman-siswa', function () {
     return view('users.siswa.index-siswa');
   });

@@ -16,6 +16,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\SiswaLoginController;
 use App\Http\Controllers\SoalJawabanController;
+use App\Http\Controllers\NilaiController;
 
 
 /*
@@ -135,3 +136,6 @@ Route::group(['middleware' => ['auth:siswa']], function () {
 });
 
 Route::get('/getsoal', [SoalJawabanController::class,'apiSoal']);
+
+//Simpan Jawaban Siswa
+Route::post('/simpanjawaban', [SoalJawabanController::class,'simpanJawaban']);

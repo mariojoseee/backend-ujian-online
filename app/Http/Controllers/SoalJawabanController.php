@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Soal;
 use App\Models\Ujian;
 use App\Models\Jawaban;
+use App\Models\SiswaSoalJawaban;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -153,6 +154,23 @@ class SoalJawabanController extends Controller
             'success' => true,
             'message' => "",
             'soal' => Soal::with('jawaban')->get()
+        ]);
+    }
+
+    public function simpanJawaban(Request $request)
+    {
+        $validatedData = $request->validate([
+            'siswa_id' => 'required',
+            'soal_id' => 'required',
+            'jawaban_id' => 'required',
+        ]);
+
+        $jawabanTersimpan = SiswaSoalJawaban :: create($validatedData);
+        
+        return response()->json([
+            'success' => true,
+            'message' => "success",
+            'jawaban' => $jawabanTersimpan
         ]);
     }
 }

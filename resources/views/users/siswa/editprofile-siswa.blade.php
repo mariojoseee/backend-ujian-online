@@ -54,63 +54,67 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="d-flex flex-row">
-							<p class="text-lg ml-3">Ubah Password</p>
+							<p class="text-lg ml-3">Siswa</p>
+							<p class="text-lg ml-auto">{{auth('siswa')->user()->nama}}</p>
 						</div>
-					</div>
+					</div> 
 
 					<div class="col-lg-7">
 						<div class="card border-0">
 							<div class="card-header bg-danger text-center p-4">
-								<h1 class="text-white m-0">Edit Password Siswa</h1>
+								<h1 class="text-white m-0">Edit Profile Siswa</h1>
 							</div>
-							<form action="/updatepassword" method="post">
-								@method('put')
-								@csrf
-
-								<div class="card-body rounded-bottom .bg-light p-5">
-
+							
+							<div class="card-body rounded-bottom .bg-light p-5">
+								<form action="/updateProfile" method="post">
+                                @method('put')
+                                @csrf
 									<div class="form-group">
-										<label>Password Saat Ini</label>
-										<input type="password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Password Saat Ini" name="current_password">
-										@error('current_password')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+										<label>NIS</label>
+										<input type="number" class="form-control" placeholder="nis" value="{{auth('siswa')->user()->nis}}" disabled>
 									</div>
 
 									<div class="form-group">
-										<label>Password Baru</label>
-										<input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password Baru" name="password">
-										@error('password')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+										<label>Nama Siswa</label>
+										<input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="nama siswa" value="{{auth('siswa')->user()->nama}}">
+                                        @error('nama')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                        @enderror
 									</div>
 
 									<div class="form-group">
-										<label>Konfirmasi Password Baru</label>
-										<input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Konfirmasi Password Baru" name="password_confirmation">
-										@error('password_confirmation')
-										<div class="invalid-feedback">
-											{{ $message }}
-										</div>
-										@enderror
+										<label>Email</label>
+										<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="email" value="{{auth('siswa')->user()->email}}">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                        @enderror
+									</div>
+
+                                    <div class="form-group">
+										<label>Nomor Handphone</label>
+										<input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" name="no_telp" placeholder="nomor handphone" value="{{auth('siswa')->user()->no_telp}}">
+                                        @error('no_telp')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                        @enderror
 									</div>
 
 									<div>
 										<button class="btn btn-success btn-block border-0 py-3" type="submit">
-											Simpan
+											Edit
 										</button>
+
 										<button class="btn btn-danger btn-block border-0 py-3" type="button">
 											<a href="/halaman-siswa" class="text-white">Batal</a>
 										</button>
 									</div>
-
-								</div>
-							</form>
-
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

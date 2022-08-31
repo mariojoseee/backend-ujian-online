@@ -82,9 +82,8 @@
 									</div>
 
 									<div>
-										<button class="btn btn-secondary btn-block border-0 py-3" type="button">
-											<a href="/editpassword" class="text-white">Ubah Password</a>
-										</button>
+										<a href="/editprofile-siswa" class="btn btn-success">Update Profile</a>
+										<a href="/editpassword" class="btn btn-danger">Ubah Password</a>
 									</div>
 								</form>
 							</div>

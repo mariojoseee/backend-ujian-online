@@ -85,6 +85,7 @@
 				</div>
 			</div>
 		</div>
+		<input type="text" id="siswa_id" value="{{auth('siswa')->user()->id}}" class="d-none">
 	</section>
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -112,6 +113,7 @@
 				const soalData = response.data.soal
 				console.log(soalData)
 				let listSoal = []
+				this.allSoal = soalData
 
 				soalData.map((soal, number) => {
 					console.log(soal)
@@ -121,7 +123,7 @@
 						soal.soal,
 
 						[soal.jawaban[0] ? (soal.jawaban[0].jawaban) : (''), soal.jawaban[1] ? (soal.jawaban[1].jawaban) : (''), soal.jawaban[2] ? (soal.jawaban[2].jawaban) : (''), soal.jawaban[3] ? (soal.jawaban[3].jawaban) : ('')],
-						soal.jawaban[0] ? (soal.jawaban[soal.jawaban.findIndex((o) => o.keterangan === 'Benar' )].jawaban) : ('')
+						soal.jawaban[0] ? (soal.jawaban[soal.jawaban.findIndex((o) => o.keterangan === 'Benar')].jawaban) : ('')
 
 					))
 				})
@@ -142,6 +144,57 @@
 					console.log(answer)
 					console.log(this.getPertanyaanIndex())
 					console.log('answer')
+					console.log(soalData)
+					console.log('testAllSoal')
+
+					//cek id soal
+					const soalSekarang = soalData[this.pertanyaanIndex]
+					const idSoal = soalSekarang.id
+					console.log(idSoal)
+					console.log('soalSekarang')
+
+					//cek id siswa
+					const idSiswaInput = document.getElementById('siswa_id')
+					console.log(idSiswaInput.value)
+					console.log('idSiswa')
+
+					//cek id jawaban
+					const idJawaban = soalSekarang.jawaban[soalSekarang.jawaban.findIndex((o) => o.jawaban === answer)].id
+					console.log(idJawaban)
+					console.log('idjawaban')
+
+					//membuat form data
+					let formData = new FormData();
+					formData.append("siswa_id", idSiswaInput.value);
+					formData.append("soal_id", idSoal);
+					formData.append("jawaban_id", idJawaban);
+
+					//menyimpan data
+					axios({
+							method: "post",
+							url: "/simpanjawaban",
+							data: formData,
+							headers: {
+								"Content-Type": "multipart/form-data",
+							},
+						})
+						.then(function(response) {
+							//handle success
+							console.log(response);
+						
+							if (response.status >= 400) {
+								console.log("Berita Gagal Disimpan!!");
+							} else {
+								console.log("Berita Sugses Disimpan!!");									
+							}
+						})
+						.catch(function(response) {
+							//handle error
+							console.log(response);
+
+							console.log("Gagal Menyimpan!!");
+						});
+
 					if (this.getPertanyaanIndex().isCorrectAnswer(answer)) {
 						this.score++;
 					}
@@ -204,11 +257,48 @@
 				};
 
 				function showScores() {
+					// const nilaiAkhir = ujian.score * (100 / ujian.pertanyaans.length)
+
+					//tambah axios menyimpan data untuk nambah nilai
+
+					//membuat form data
+					// let formData = new FormData();
+					// formData.append("siswa_id", idSiswaInput.value);
+					// formData.append("soal_id", idSoal);
+					// formData.append("jawaban_id", idJawaban);
+
+					// //menyimpan data
+					// axios({
+					// 		method: "post",
+					// 		url: "/simpanjawaban",
+					// 		data: formData,
+					// 		headers: {
+					// 			"Content-Type": "multipart/form-data",
+					// 		},
+					// 	})
+					// 	.then(function(response) {
+					// 		//handle success
+					// 		console.log(response);
+						
+					// 		if (response.status >= 400) {
+					// 			console.log("Berita Gagal Disimpan!!");
+					// 		} else {
+					// 			console.log("Berita Sugses Disimpan!!");									
+					// 		}
+					// 	})
+					// 	.catch(function(response) {
+					// 		//handle error
+					// 		console.log(response);
+
+					// 		console.log("Gagal Menyimpan!!");
+					// 	});
+
+
 					let ujianEndHTML =
 						`
 			<h1>Ujian Completed</h1>
 			<h2 id='score'> Skor anda: ${ujian.score} dari ${ujian.pertanyaans.length}</h2>
-			<h2 id='nilai'> Nilai anda: ${ujian.score * (100 / ujian.pertanyaans.length)} dari ${100}</h2>
+			<h2 id='nilai'> Nilai anda: ${nilaiAkhir} dari ${100}</h2>
 			<div class="ujian-repeat">
 				<a href="/nilai-siswa">Selesai</a>
 			</div>

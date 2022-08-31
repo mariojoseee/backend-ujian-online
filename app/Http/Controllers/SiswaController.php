@@ -139,37 +139,36 @@ class SiswaController extends Controller
         return redirect('/siswa-smansabar');
     }
 
-    // public function profilSiswa()
-    // {
-    //     return view('users.siswa.editprofile-siswa', [
-    //         'title' => "Form Edit Profile Siswa",
-    //         'smallTitle' => " - Profil Siswa",
-    //         'headTitle' => "Profil Siswa",
-    //     ]);
-    // }
+    public function profilSiswa()
+    {
+        return view('users.siswa.editprofile-siswa', [
+            'title' => "Form Edit Profile Siswa",
+            'smallTitle' => " - Profil Siswa",
+            'headTitle' => "Profil Siswa",
+        ]);
+    }
 
-    // public function updateProfilSiswa(Request $request)
-    // {
-    //     $data_siswa =  Siswa::find(auth('siswa')->user()->id);
-    //     $rules = [
-    //         'nis' => 'required',
-    //         'nama' => 'required',
-    //     ];
+    public function updateProfilSiswa(Request $request)
+    {
+        $data_siswa =  Siswa::find(auth('siswa')->user()->id);
+        $rules = [
+            'nama' => 'required',
+        ];
 
-    //     if ($request->email != $data_siswa->email) {
-    //         $rules['email'] = 'required|email:dns|unique:siswas';
-    //     }
+        if ($request->email != $data_siswa->email) {
+            $rules['email'] = 'required|email:dns|unique:siswas';
+        }
 
-    //     if ($request->no_telp != $data_siswa->no_telp) {
-    //         $rules['no_telp'] = 'required|unique:siswas|max:13';
-    //     }
+        if ($request->no_telp != $data_siswa->no_telp) {
+            $rules['no_telp'] = 'required|unique:siswas|max:13';
+        }
 
-    //     $validatedData = $request->validate($rules);
+        $validatedData = $request->validate($rules);
 
-    //     // QUERY
-    //     Siswa::where('id', auth('siswa')->user()->id)->update($validatedData);
+        // QUERY
+        Siswa::where('id', auth('siswa')->user()->id)->update($validatedData);
 
-    //     Alert::success('Sukses', 'Data berhasil diupdate !');
-    //     return back();
-    // }
+        Alert::success('Sukses', 'Data berhasil diupdate !');
+        return back();
+    }
 }

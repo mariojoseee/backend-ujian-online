@@ -1093,6 +1093,13 @@ h3{
   margin-bottom: 4rem;
 }
 
+#nilai {
+  color: var(--black);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
 .ujian-repeat { 
   text-align: center;
   margin: 0 auto;

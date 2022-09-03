@@ -15,7 +15,7 @@ class UjianSeeder extends Seeder
      */
     public function run()
     {
-        // UTS GANJIL FISIKA
+        // UTS GANJIL BIOLOGI
         Ujian::create([
             'jenis' => 'Ujian Tengah Semester (UTS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -26,7 +26,7 @@ class UjianSeeder extends Seeder
             'mapel_id' => 8,
             'guru_id' => 1,
         ]);
-        // UAS GANJIL FISIKA
+        // UAS GANJIL BIOLOGI
         Ujian::create([
             'jenis' => 'Ujian Akhir Semester (UAS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -38,7 +38,7 @@ class UjianSeeder extends Seeder
             'guru_id' => 1,
         ]);
 
-        // UTS GENAP FISIKA
+        // UTS GENAP BIOLOGI
         Ujian::create([
             'jenis' => 'Ujian Tengah Semester (UTS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -49,7 +49,7 @@ class UjianSeeder extends Seeder
             'mapel_id' => 8,
             'guru_id' => 1,
         ]);
-        // UAS GENAP FISIKA
+        // UAS GENAP BIOLOGI
         Ujian::create([
             'jenis' => 'Ujian Akhir Semester (UAS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -61,7 +61,8 @@ class UjianSeeder extends Seeder
             'guru_id' => 1,
         ]);
 
-        // UTS GANJIL BAHASA INGGRIS
+
+        // UTS GANJIL SASTRA INGGRIS
         Ujian::create([
             'jenis' => 'Ujian Tengah Semester (UTS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -69,10 +70,10 @@ class UjianSeeder extends Seeder
             'semester' => 'Ganjil',
             'status' => 'Nonaktif',
             'waktu' => '01:00:00',
-            'mapel_id' => 4,
+            'mapel_id' => 16,
             'guru_id' => 4,
         ]);
-        // UAS GANJIL BAHASA INGGRIS
+        // UAS GANJIL SASTRA INGGRIS
         Ujian::create([
             'jenis' => 'Ujian Akhir Semester (UAS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -80,11 +81,11 @@ class UjianSeeder extends Seeder
             'semester' => 'Ganjil',
             'status' => 'Nonaktif',
             'waktu' => '00:40:00',
-            'mapel_id' => 4,
+            'mapel_id' => 16,
             'guru_id' => 4,
         ]);
 
-        // UTS GENAP BAHASA INGGRIS
+        // UTS GENAP SASTRA INGGRIS
         Ujian::create([
             'jenis' => 'Ujian Tengah Semester (UTS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -92,10 +93,10 @@ class UjianSeeder extends Seeder
             'semester' => 'Genap',
             'status' => 'Nonaktif',
             'waktu' => '00:40:00',
-            'mapel_id' => 4,
+            'mapel_id' => 16,
             'guru_id' => 4,
         ]);
-        // UAS GENAP BAHASA INGGRIS
+        // UAS GENAP SASTRA INGGRIS
         Ujian::create([
             'jenis' => 'Ujian Akhir Semester (UAS)',
             'deskripsi' => 'Pilihlah jawaban yang paling benar pada salah satu huruf a, b, c, atau d !',
@@ -103,7 +104,7 @@ class UjianSeeder extends Seeder
             'semester' => 'Genap',
             'status' => 'Nonaktif',
             'waktu' => '00:45:00',
-            'mapel_id' => 4,
+            'mapel_id' => 16,
             'guru_id' => 4,
         ]);
     }

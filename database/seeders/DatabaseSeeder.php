@@ -34,62 +34,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UjianSeeder::class);
         $this->call(GuruKelazMapelSeeder::class);
         $this->call(NilaiSeeder::class);
+        $this->call(SoalBiologiSeeder::class);
+        $this->call(JawabanBiologiSeeder::class);
 
         Angkatan::create([
             'tahun' => '2022'
-        ]);
-        
-        Soal::create([
-            'soal' => 'Burger and French Fries ___ my favorite foods.',
-            'ujian_id' => 1,
-        ]);
-        
-        Soal::create([
-            'soal' => 'Do ___ ___ at least once a week?',
-            'ujian_id' => 1,
-        ]);
-
-        Soal::create([
-            'soal' => 'Does ___ ___ math for the test?',
-            'ujian_id' => 1,
-        ]);
-
-        Soal::create([
-            'soal' => 'My brother and I ___ mount Arjuno this holiday.',
-            'ujian_id' => 1,
-        ]);
-
-        Soal::create([
-            'soal' => 'The students ___ not ___ the assignment, so they got D.',
-            'ujian_id' => 1,
-        ]);
-
-        Jawaban::create([
-            'jawaban' => 'Is',
-            'keterangan' => 'Salah',
-            'skor' => 0,
-            'soal_id' => 1,
-        ]);
-
-        Jawaban::create([
-            'jawaban' => 'Are',
-            'keterangan' => 'Benar',
-            'skor' => 5,
-            'soal_id' => 1,
-        ]);
-
-        Jawaban::create([
-            'jawaban' => 'Does',
-            'keterangan' => 'Salah',
-            'skor' => 0,
-            'soal_id' => 1,
-        ]);
-
-        Jawaban::create([
-            'jawaban' => 'Do',
-            'keterangan' => 'Salah',
-            'skor' => 0,
-            'soal_id' => 1,
         ]);
     }
 }

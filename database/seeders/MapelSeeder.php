@@ -70,5 +70,8 @@ class MapelSeeder extends Seeder
         Mapel::create([
             'nama_mapel' => 'Sastra Inggris',
         ]);
+        Mapel::create([
+            'nama_mapel' => 'Sastra Indonesia',
+        ]);
     }
 }

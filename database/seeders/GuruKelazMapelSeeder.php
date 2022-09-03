@@ -16,7 +16,7 @@ class GuruKelazMapelSeeder extends Seeder
      */
     public function run()
     {
-        // Guru Guswika Mengajar Fisika di X MIPA 1-3
+        // Guru Guswika Mengajar Biologi di X MIPA 1-3
         DB::table('guru_kelaz_mapels')->insert([
             ['guru_id' => 1, 'kelaz_id' => 1, 'mapel_id' => 8],
             ['guru_id' => 1, 'kelaz_id' => 2, 'mapel_id' => 8],

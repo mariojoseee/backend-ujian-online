@@ -130,12 +130,15 @@ Route::group(['middleware' => ['auth:siswa']], function () {
   Route::put('/updatepassword', [SiswaLoginController::class, 'updatePasswordSiswa']);
   Route::get('/kelas-siswa', [KelazController::class, 'tampilKelazSiswa']);
   Route::get('/mapel-siswa/{id}', [MapelController::class, 'tampilMapelSiswa']);
-  Route::get('/ujian-siswa', [UjianController::class, 'tampilUjianSiswa']);
-  Route::get('/soal-siswa', [SoalJawabanController::class, 'tampilSoalSiswa']);
-  Route::get('/nilai-siswa', [NilaiController::class, 'tampilNilaiSiswa']);
+  Route::get('/ujian-siswa/{id}', [UjianController::class, 'tampilUjianSiswa']);
+  Route::get('/soal-siswa/{id}', [SoalJawabanController::class, 'tampilSoalSiswa']);
+  Route::get('/nilai-siswa/{id}', [NilaiController::class, 'tampilNilaiSiswa']);
 });
 
-Route::get('/getsoal', [SoalJawabanController::class,'apiSoal']);
+Route::get('/getsoal/{id}', [SoalJawabanController::class,'apiSoal']);
 
 //Simpan Jawaban Siswa
 Route::post('/simpanjawaban', [SoalJawabanController::class,'simpanJawaban']);
+
+//Simpan Nilai Siswa
+Route::post('/simpannilai', [NilaiController::class,'simpanNilai']);

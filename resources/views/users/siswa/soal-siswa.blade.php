@@ -7,17 +7,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<title>Online Exam</title>
 	<!-- CSS Files -->
-	<link rel="stylesheet" type="text/css" href="users/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="users/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="users/css/template.css">
+	<link rel="stylesheet" href="{{ asset('users/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('users/css/font-awesome.css') }}">
+	<link rel="stylesheet" href="{{ asset('users/css/template.css') }}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
 	<!-- Google Fonts Roboto -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 	<!-- MDB -->
-	<link rel="stylesheet" href="users/css/mdb.min.css" />
+	<link rel="stylesheet" href="{{ asset('users/css/mdb.min.css') }}" />
 	<!-- Custom styles -->
-	<link rel="stylesheet" href="users/css/style.css" />
+	<link rel="stylesheet" href="{{ asset('users/css/style.css') }}" />
 	<script src="https://kit.fontawesome.com/1935d064dd.js" crossorigin="anonymous"></script>
 </head>
 
@@ -36,7 +36,7 @@
 						<ul class="nav">
 							<li class="scroll-to-section"><a href="/halaman-siswa">Profil</a></li>
 							<li class="scroll-to-section"><a href="/kelas-siswa">Kelas</a></li>
-							<li class="scroll-to-section"><a href="/nilai-siswa">Nilai</a></li>
+							<li class="scroll-to-section"><a href="/nilai-siswa/{{auth('siswa')->user()->id}}">Nilai</a></li>
 							<li class="scroll-to-section"><a href="/logoutsiswa">Logout</a></li>
 						</ul>
 						<a class="menu-trigger">
@@ -86,6 +86,7 @@
 			</div>
 		</div>
 		<input type="text" id="siswa_id" value="{{auth('siswa')->user()->id}}" class="d-none">
+		<input type="text" id="ujian_id" value="{{$ujian_id}}" class="d-none">
 	</section>
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -104,7 +105,8 @@
 		const soalData = getData()
 		console.log(soalData)
 
-		axios.get('/getsoal')
+		const idUjianSoal = document.getElementById('ujian_id')
+		axios.get(`/getsoal/${idUjianSoal.value}`)
 
 			// tampil jawaban
 
@@ -257,41 +259,50 @@
 				};
 
 				function showScores() {
-					// const nilaiAkhir = ujian.score * (100 / ujian.pertanyaans.length)
+					const nilaiAkhir = ujian.score * (100 / ujian.pertanyaans.length)
 
 					//tambah axios menyimpan data untuk nambah nilai
+					//mengambil id siswa
+					const idSiswaInput = document.getElementById('siswa_id')
+					console.log(idSiswaInput.value)
+					console.log('idSiswa')
+
+					//mengambil id ujian
+					const idUjian = document.getElementById('ujian_id')
+					console.log(idUjian.value)
+					console.log('idujian')
 
 					//membuat form data
-					// let formData = new FormData();
-					// formData.append("siswa_id", idSiswaInput.value);
-					// formData.append("soal_id", idSoal);
-					// formData.append("jawaban_id", idJawaban);
+					let formData = new FormData();
+					formData.append("siswa_id", idSiswaInput.value);
+					formData.append("ujian_id", idUjian.value);
+					formData.append("nilai", nilaiAkhir);
 
-					// //menyimpan data
-					// axios({
-					// 		method: "post",
-					// 		url: "/simpanjawaban",
-					// 		data: formData,
-					// 		headers: {
-					// 			"Content-Type": "multipart/form-data",
-					// 		},
-					// 	})
-					// 	.then(function(response) {
-					// 		//handle success
-					// 		console.log(response);
+					// //menyimpan data nilai
+					axios({
+							method: "post",
+							url: "/simpannilai",
+							data: formData,
+							headers: {
+								"Content-Type": "multipart/form-data",
+							},
+						})
+						.then(function(response) {
+							//handle success
+							console.log(response);
 						
-					// 		if (response.status >= 400) {
-					// 			console.log("Berita Gagal Disimpan!!");
-					// 		} else {
-					// 			console.log("Berita Sugses Disimpan!!");									
-					// 		}
-					// 	})
-					// 	.catch(function(response) {
-					// 		//handle error
-					// 		console.log(response);
+							if (response.status >= 400) {
+								console.log("Berita Gagal Disimpan!!");
+							} else {
+								console.log("Berita Sugses Disimpan!!");									
+							}
+						})
+						.catch(function(response) {
+							//handle error
+							console.log(response);
 
-					// 		console.log("Gagal Menyimpan!!");
-					// 	});
+							console.log("Gagal Menyimpan!!");
+						});
 
 
 					let ujianEndHTML =
@@ -300,7 +311,7 @@
 			<h2 id='score'> Skor anda: ${ujian.score} dari ${ujian.pertanyaans.length}</h2>
 			<h2 id='nilai'> Nilai anda: ${nilaiAkhir} dari ${100}</h2>
 			<div class="ujian-repeat">
-				<a href="/nilai-siswa">Selesai</a>
+				<a href="/nilai-siswa/${idSiswaInput.value}">Selesai</a>
 			</div>
 			`;
 					let ujianElement = document.getElementById("ujian");

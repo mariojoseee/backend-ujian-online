@@ -7,18 +7,19 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
   <title>Online Exam</title>
   <!-- CSS Files -->
-  <link rel="stylesheet" type="text/css" href="users/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="users/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="users/css/template.css">
+  <link rel="stylesheet" href="{{ asset('users/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('users/css/font-awesome.css') }}">
+  <link rel="stylesheet" href="{{ asset('users/css/template.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="users/css/mdb.min.css" />
+  <link rel="stylesheet" href="{{ asset('users/css/mdb.min.css') }}" />
   <!-- Custom styles -->
-  <link rel="stylesheet" href="users/css/style.css" />
+  {{-- <link rel="stylesheet" href="{{ asset('users/css/style.css') }}" /> --}}
 </head>
+  
 
 <body>
   <header class="header-area header-sticky">
@@ -35,7 +36,7 @@
             <ul class="nav">
               <li class="scroll-to-section"><a href="/halaman-siswa">Profil</a></li>
               <li class="scroll-to-section"><a href="/kelas-siswa">Kelas</a></li>
-              <li class="scroll-to-section"><a href="/nilai-siswa">Nilai</a></li>
+              <li class="scroll-to-section"><a href="/nilai-siswa/{{auth('siswa')->user()->id}}">Nilai</a></li>
               <li class="scroll-to-section"><a href="/logoutsiswa">Logout</a></li>
             </ul>
             <a class="menu-trigger">

@@ -6,18 +6,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<title>Online Exam</title>
 	<!-- CSS Files -->
-	<link rel="stylesheet" type="text/css" href="users/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="users/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="users/css/template.css">
+	<link rel="stylesheet" href="{{ asset('users/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('users/css/font-awesome.css') }}">
+	<link rel="stylesheet" href="{{ asset('users/css/template.css') }}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="users/css/mdb.min.css" />
+	<link rel="stylesheet" href="{{ asset('users/css/mdb.min.css') }}" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="users/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="users/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('users/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('users/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="users/DataTables/media/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="users/DataTables/media/css/dataTables.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
@@ -37,7 +37,7 @@
 						<ul class="nav">
 							<li class="scroll-to-section"><a href="/halaman-siswa">Profil</a></li>
 							<li class="scroll-to-section"><a href="/kelas-siswa">Kelas</a></li>
-							<li class="scroll-to-section"><a href="/nilai-siswa">Nilai</a></li>
+							<li class="scroll-to-section"><a href="/nilai-siswa/{{auth('siswa')->user()->id}}">Nilai</a></li>
 							<li class="scroll-to-section"><a href="/logoutsiswa">Logout</a></li>
 						</ul>
 						<a class="menu-trigger">
@@ -62,25 +62,22 @@
                     </div>
 					
                     <table id="dataNilai" class="table table-striped table-bordered" style="width: 100%;">
+                        @csrf
                         <thead>
                             <tr>
                                 <th>Nama Siswa</th>
-                                <th>Ulangan Tengah Semester</th>
-                                <th>Ulangan Akhir Semester</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Nilai</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Hartaka Irnanto Nashiruddin</td>
-                                <td>5</td>
-                                <td>3</td>
-                            </tr>
-
-                            <tr>
-                                <td>Harsanto Wacana</td>
-                                <td>3</td>
-                                <td>4</td>
-                            </tr>
+                            @foreach ($nilais as $item)
+                                <tr>
+                                    <td>{{$item->siswa->nama}}</td>
+                                    <td>{{$item->ujian->mapel->nama_mapel}}</td>
+                                    <td>{{$item->nilai}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

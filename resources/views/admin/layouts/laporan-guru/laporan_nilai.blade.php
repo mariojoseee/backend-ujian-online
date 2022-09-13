@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SMANSA Banjar - Laporan Nilai</title>
+  <title>{{ $data_ajars->mapel->nama_mapel }} Kelas {{ $data_ajars->kelaz->nama_kelaz }} ({{ $data_ajars->kelaz->angkatan->tahun }})</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -203,19 +203,19 @@
 
               <div class="card">
                 <div class="card-body">
-                  <a href="/laporan-nilai-guru-print/{{ $data_ajars->id }}" target="_blank" class="btn btn-success mb-3">Ekspor Data</a>
                   <h5>Pengajar : {{ auth('guru')->user()->nama }}</h5>
                   <h5>Mata Pelajaran : {{ $data_ajars->mapel->nama_mapel }} </h5>
-                  <h5>Kelas : {{ $data_ajars->kelaz->nama_kelaz }} ({{ $data_ajars->kelaz->angkatan->tahun }})</h5>
+                  <h5 class="mb-3">Kelas : {{ $data_ajars->kelaz->nama_kelaz }} ({{ $data_ajars->kelaz->angkatan->tahun }})</h5>
+                  <a href="/laporan-nilai-guru-print/{{ $data_ajars->id }}" target="_blank" class="btn btn-success mb-3">PDF &nbsp;</a>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th style="width: 1%;">No.</th>
-                        <th style="width: 10%;">Nama Siswa</th>
-                        <th style="width: 20%;">UTS Ganjil</th>
-                        <th style="width: 20%;">UAS Ganjil</th>
-                        <th style="width: 20%;">UTS Genap</th>
-                        <th style="width: 20%;">UAS Genap</th>
+                        <th style="width: 30%;">Nama Siswa</th>
+                        <th style="width: 10%;">UTS Ganjil</th>
+                        <th style="width: 10%;">UAS Ganjil</th>
+                        <th style="width: 10%;">UTS Genap</th>
+                        <th style="width: 10%;">UAS Genap</th>
                       </tr>
                     </thead>
                     <tbody>

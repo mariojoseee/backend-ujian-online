@@ -212,7 +212,10 @@
                       <tr>
                         <th style="width: 1%;">No.</th>
                         <th style="width: 10%;">Nama Siswa</th>
-                        <th style="width: 20%;">Nilai Keseluruhan Ujian</th>
+                        <th style="width: 20%;">UTS Ganjil</th>
+                        <th style="width: 20%;">UAS Ganjil</th>
+                        <th style="width: 20%;">UTS Genap</th>
+                        <th style="width: 20%;">UAS Genap</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -220,8 +223,29 @@
                         <tr>
                           <td>{{ $loop->iteration }}</td>
                           <td>{{ $siswa->nama }}</td>
-                          <td>
-                            - UTS Semester Ganjil &ensp; = &ensp; @if (isset($siswa->listnilai[0]))
+                          @if (isset($siswa->listnilai[0]))
+                            <td> {{ $siswa->listnilai[0]->nilai }}</td>
+                          @else
+                          <td></td>
+                          @endif
+                          @if (isset($siswa->listnilai[1]))
+                            <td> {{ $siswa->listnilai[1]->nilai }}</td>
+                          @else
+                          <td></td>
+                          @endif
+                          @if (isset($siswa->listnilai[2]))
+                            <td> {{ $siswa->listnilai[2]->nilai }}</td>
+                          @else
+                          <td></td>
+                          @endif
+                          @if (isset($siswa->listnilai[3]))
+                            <td> {{ $siswa->listnilai[3]->nilai }}</td>
+                          @else
+                          <td></td>
+                          @endif
+                          {{-- <td>
+                            - UTS Semester Ganjil &ensp; = &ensp;
+                            @if (isset($siswa->listnilai[0]))
                               {{ $siswa->listnilai[0]->nilai }}
                             @else
                               -
@@ -242,7 +266,7 @@
                             @else
                               -
                             @endif
-                          </td>
+                          </td> --}}
                         </tr>
                       @endforeach
                     </tbody>
@@ -298,7 +322,7 @@
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        // "buttons": ["excel", "pdf"],
+        "buttons": ["excel"],
         "searching": true,
         "paging": false,
         "ordering": true,

@@ -76,8 +76,8 @@ Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function () {
 // FITUR KHUSUS GURU
 Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   // Route Profil Guru
-  Route::get('/profil-guru', [GuruController::class, 'profilGuru']);
-  Route::put('/profil-guru/update', [GuruController::class, 'updateProfilGuru']);
+  Route::get('/profile-guru', [GuruController::class, 'profilGuru']);
+  Route::put('/profile-guru/update', [GuruController::class, 'updateProfilGuru']);
   Route::get('/edit-password-guru', [GuruController::class, 'editPasswordGuru']);
   Route::put('/update-password-guru', [GuruController::class, 'updatePasswordGuru']);
   // Route Ujian
@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:guru']], function () {
   Route::get('/laporan', [LaporanController::class, 'indexLaporanDataAjar']);
   // Tampil Laporan Nilai Ujian Actor Guru
   Route::get('/laporan-nilai-guru/kelaz/{id}', [LaporanController::class, 'indexLaporanGuru']);
+  Route::get('/laporan-excel', [LaporanController::class, 'indexLaporanExcel']);
   // Print Laporan Nilai Actor Ujian Guru
   Route::get('/laporan-nilai-guru-print/{id}', [LaporanController::class, 'indexLaporanPrint']);
 });

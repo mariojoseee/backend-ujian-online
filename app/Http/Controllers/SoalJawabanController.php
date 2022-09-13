@@ -143,17 +143,19 @@ class SoalJawabanController extends Controller
         return redirect('/ujian/jawaban-ujian/' . $soal_id);
     }
 
-    public function tampilSoalSiswa()
+    public function tampilSoalSiswa($id)
     {
-        return view('users.siswa.soal-siswa');
+        return view('users.siswa.soal-siswa', [
+            'soals' => Soal::where('ujian_id', $id)->get(), 'ujian_id'=>$id
+        ]);
     }
 
-    public function apiSoal()
+    public function apiSoal($id)
     {
         return response()->json([
             'success' => true,
             'message' => "",
-            'soal' => Soal::with('jawaban')->get()
+            'soal' => Soal::where('ujian_id',$id)->with('jawaban')->get()
         ]);
     }
 

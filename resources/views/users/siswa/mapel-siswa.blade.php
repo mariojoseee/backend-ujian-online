@@ -7,17 +7,17 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
   <title>Online Exam</title>
   <!-- CSS Files -->
-  <link rel="stylesheet" type="text/css" href="users/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="users/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="users/css/template.css">
+  <link rel="stylesheet" href="{{ asset('users/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('users/css/font-awesome.css') }}">
+  <link rel="stylesheet" href="{{ asset('users/css/template.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="users/css/mdb.min.css" />
+  <link rel="stylesheet" href="{{ asset('users/css/mdb.min.css') }}" />
   <!-- Custom styles -->
-  <link rel="stylesheet" href="users/css/style.css" />
+  {{-- <link rel="stylesheet" href="{{ asset('users/css/style.css') }}" /> --}}
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             <ul class="nav">
               <li class="scroll-to-section"><a href="/halaman-siswa">Profil</a></li>
               <li class="scroll-to-section"><a href="/kelas-siswa">Kelas</a></li>
-              <li class="scroll-to-section"><a href="/nilai-siswa">Nilai</a></li>
+              <li class="scroll-to-section"><a href="/nilai-siswa/{{auth('siswa')->user()->id}}">Nilai</a></li>
               <li class="scroll-to-section"><a href="/logoutsiswa">Logout</a></li>
             </ul>
             <a class="menu-trigger">
@@ -64,20 +64,27 @@
             <h3>Bahasa Indonesia</h3>
           </div>
 
-          <div id="mapel">
-            <div class="header-info">
-              <h2>Info!!</h2>
-              <h3>Selamat mengerjakan ujian</h3>
-            </div>
-
-            @foreach ($ujians as $ujian)
-              <div class="header-ujian">
-                <a href="/ujian-siswa/{{ $ujian->id }}">
-                  <h3><i class="fas fa-clipboard-list"></i>{{ $ujian->jenis }} -> Semester {{ $ujian->semester }}</h3>
-                </a>
+          @foreach ($ujians as $ujian)
+            <div class="row pb-4 pt-2">
+              <div class="header-info-soal col-2 col-lg-3">
+                <div class="header-info">
+                  <h2>Info!!</h2>
+                  <h3>Selamat mengerjakan ujian</h3>
+                </div>
               </div>
+              
+              
+            
+              <div class="col-6 col-lg-4">
+                <div class="header-ujian">
+                  <a href="/ujian-siswa/{{ $ujian->id }}">
+                    <h3><i class="fas fa-clipboard-list"></i>{{ $ujian->jenis }} -> Semester {{ $ujian->semester }}</h3>
+                  </a>
+                </div>
+              </div>
+            </div>
+              
             @endforeach
-          </div>
         </div>
       </div>
     </div>
